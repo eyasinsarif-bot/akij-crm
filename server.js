@@ -350,27 +350,27 @@ app.get('/api/dashboard/stats', authRequired, async (req, res) => {
 // ============ FINANCIAL ANALYTICS ============
 app.get('/api/financial/summary', authRequired, async (req, res) => {
   try { const d = await runQuery(`SELECT SUM(CASE WHEN numAmount<0 THEN ABS(numAmount) ELSE 0 END) as totalRevenue, SUM(CASE WHEN strFSComponentName='Cost Of Goods Sold' THEN numAmount ELSE 0 END) as cogs, SUM(CASE WHEN strFSComponentName IN ('Manufacturing Overhead/Cost of Service Provided','Logistics & Distribution Expenses','Selling Expenses','Administrative Expenses','Marketing Expenses','Depreciation Expenses') THEN numAmount ELSE 0 END) as opex, SUM(CASE WHEN strFSComponentName='Financial Expenses' THEN numAmount ELSE 0 END) as financialExp, SUM(CASE WHEN strFSComponentName='Provission For Income Tax' THEN numAmount ELSE 0 END) as tax, SUM(numAmount) as netIncome, COUNT(*) as totalTx, COUNT(DISTINCT strSubGLName) as glAccounts, COUNT(DISTINCT strProfitCenterName) as profitCenters FROM [dbo].[tblISTransaction] WHERE intBusinessUnitId=${BU_ID}`); res.json(d[0]); }
-  catch(e) { res.status(500).json({ error: e.message }); }
+  catch(e) { if (seedRealData.customers) return res.json(seedRealData.customers); const fb = seedFallback(ent); if (fb) return res.json(fb); res.status(500).json({ error: e.message });
 });
 
 app.get('/api/financial/fs-components', authRequired, async (req, res) => {
   try { const d = await runQuery(`SELECT strFSComponentName as name, strType as type, COUNT(*) as txCount, SUM(numAmount) as totalAmount FROM [dbo].[tblISTransaction] WHERE intBusinessUnitId=${BU_ID} GROUP BY strFSComponentName, strType ORDER BY totalAmount ASC`); res.json(d); }
-  catch(e) { res.status(500).json({ error: e.message }); }
+  catch(e) { if (seedRealData.customers) return res.json(seedRealData.customers); const fb = seedFallback(ent); if (fb) return res.json(fb); res.status(500).json({ error: e.message });
 });
 
 app.get('/api/financial/monthly', authRequired, async (req, res) => {
   try { const d = await runQuery(`SELECT FORMAT(dteTransactionDate,'yyyy-MM') as month, SUM(CASE WHEN numAmount<0 THEN ABS(numAmount) ELSE 0 END) as revenue, SUM(CASE WHEN strFSComponentName='Cost Of Goods Sold' THEN numAmount ELSE 0 END) as cogs, SUM(CASE WHEN numAmount>0 AND strFSComponentName!='Cost Of Goods Sold' THEN numAmount ELSE 0 END) as expenses, SUM(numAmount) as netIncome, COUNT(*) as txCount FROM [dbo].[tblISTransaction] WHERE intBusinessUnitId=${BU_ID} GROUP BY FORMAT(dteTransactionDate,'yyyy-MM') ORDER BY month`); res.json(d); }
-  catch(e) { res.status(500).json({ error: e.message }); }
+  catch(e) { if (seedRealData.customers) return res.json(seedRealData.customers); const fb = seedFallback(ent); if (fb) return res.json(fb); res.status(500).json({ error: e.message });
 });
 
 app.get('/api/financial/top-gl', authRequired, async (req, res) => {
   try { const d = await runQuery(`SELECT TOP 30 strSubGLName as name, strGeneralLedgerName as glName, strFSComponentName as component, COUNT(*) as txCount, SUM(numAmount) as totalAmount FROM [dbo].[tblISTransaction] WHERE intBusinessUnitId=${BU_ID} GROUP BY strSubGLName, strGeneralLedgerName, strFSComponentName ORDER BY ABS(SUM(numAmount)) DESC`); res.json(d); }
-  catch(e) { res.status(500).json({ error: e.message }); }
+  catch(e) { if (seedRealData.customers) return res.json(seedRealData.customers); const fb = seedFallback(ent); if (fb) return res.json(fb); res.status(500).json({ error: e.message });
 });
 
 app.get('/api/financial/transactions', authRequired, async (req, res) => {
   try { const lim = parseInt(req.query.limit) || 100; const d = await runQuery(`SELECT TOP ${lim} dteTransactionDate as date, strFSComponentName as component, strGeneralLedgerName as glName, strSubGLName as subGL, strProfitCenterName as profitCenter, numAmount as amount FROM [dbo].[tblISTransaction] WHERE intBusinessUnitId=${BU_ID} ORDER BY dteTransactionDate DESC`); res.json(d); }
-  catch(e) { res.status(500).json({ error: e.message }); }
+  catch(e) { if (seedRealData.customers) return res.json(seedRealData.customers); const fb = seedFallback(ent); if (fb) return res.json(fb); res.status(500).json({ error: e.message });
 });
 
 // ============ ACCOUNTS (with team management) ============
@@ -450,7 +450,7 @@ app.get('/api/customers/dwh', authRequired, async (req, res) => {
       last_active: r.last_active ? new Date(r.last_active).toLocaleDateString('en-BD') : ''
     }));
     res.json(mapped);
-  } catch(e) { res.status(500).json({ error: e.message }); }
+  } catch(e) { if (seedRealData.customers) return res.json(seedRealData.customers); const fb = seedFallback(ent); if (fb) return res.json(fb); res.status(500).json({ error: e.message });
 });
 
 crudRoutes('customers', 'customers');
@@ -471,7 +471,7 @@ app.get('/api/leads/dwh', authRequired, async (req, res) => {
       value: r.value || 0
     }));
     res.json(mapped);
-  } catch(e) { res.status(500).json({ error: e.message }); }
+  } catch(e) { if (seedRealData.customers) return res.json(seedRealData.customers); const fb = seedFallback(ent); if (fb) return res.json(fb); res.status(500).json({ error: e.message });
 });
 
 // ============ REAL EMPLOYEES / SALES TEAM FROM DWH ============
@@ -479,7 +479,7 @@ app.get('/api/employees/dwh', authRequired, async (req, res) => {
   try {
     const raw = await runDWHQuery(`SELECT e.strEmployeeName as name, d.strDesignation as designation, e.strEmployeeCode as code, e.isActive, sup.strEmployeeName as supervisor, supd.strDesignation as supervisor_role, lm.strEmployeeName as line_manager, lmd.strDesignation as lm_role FROM saas.empEmployeeBasicInfoArc e JOIN saas.masterDesignationArc d ON e.intDesignationId = d.intDesignationId LEFT JOIN saas.empEmployeeBasicInfoArc sup ON e.intSupervisorId = sup.intEmployeeBasicInfoId LEFT JOIN saas.masterDesignationArc supd ON sup.intDesignationId = supd.intDesignationId LEFT JOIN saas.empEmployeeBasicInfoArc lm ON e.intLineManagerId = lm.intEmployeeBasicInfoId LEFT JOIN saas.masterDesignationArc lmd ON lm.intDesignationId = lmd.intDesignationId WHERE e.intBusinessUnitId=${BU_ID} AND e.isActive=1 ORDER BY sup.strEmployeeName, e.strEmployeeName`);
     res.json(raw);
-  } catch(e) { res.status(500).json({ error: e.message }); }
+  } catch(e) { if (seedRealData.customers) return res.json(seedRealData.customers); const fb = seedFallback(ent); if (fb) return res.json(fb); res.status(500).json({ error: e.message });
 });
 
 crudRoutes('leads', 'leads');
@@ -498,7 +498,7 @@ app.get('/api/opportunities/dwh', authRequired, async (req, res) => {
       expected_close: r.dteDueShippingDate ? new Date(r.dteDueShippingDate).toISOString().slice(0,10) : ''
     }));
     res.json(mapped);
-  } catch(e) { res.status(500).json({ error: e.message }); }
+  } catch(e) { if (seedRealData.customers) return res.json(seedRealData.customers); const fb = seedFallback(ent); if (fb) return res.json(fb); res.status(500).json({ error: e.message });
 });
 
 crudRoutes('opportunities', 'opportunities');
@@ -522,7 +522,7 @@ app.get('/api/orders/dwh', authRequired, async (req, res) => {
       uom: r.uom || ''
     }));
     res.json(mapped);
-  } catch(e) { res.status(500).json({ error: e.message }); }
+  } catch(e) { if (seedRealData.customers) return res.json(seedRealData.customers); const fb = seedFallback(ent); if (fb) return res.json(fb); res.status(500).json({ error: e.message });
 });
 
 crudRoutes('orders', 'orders');
@@ -540,7 +540,7 @@ app.get('/api/complaints/dwh', authRequired, async (req, res) => {
       assigned_to: r.strWarehouseName || r.strPlantName || 'Trading Sales'
     }));
     res.json(mapped);
-  } catch(e) { res.status(500).json({ error: e.message }); }
+  } catch(e) { if (seedRealData.customers) return res.json(seedRealData.customers); const fb = seedFallback(ent); if (fb) return res.json(fb); res.status(500).json({ error: e.message });
 });
 
 crudRoutes('complaints', 'complaints');
@@ -579,9 +579,18 @@ app.post('/api/reset', authRequired, roleRequired('super_admin', 'admin'), (req,
 });
 
 // ============ INIT ============
+// Load real data for Render (SQL unavailable)
+let seedRealData = {};
+try { seedRealData = require('./data/seed-real.json'); } catch(e) {}
+
 wipeDataFiles();
 seedAccounts();
-seedDemoData();
+if (seedRealData.customers) writeJSON('customers', seedRealData.customers);
+if (seedRealData.orders) writeJSON('orders', seedRealData.orders);
+if (seedRealData.leads) writeJSON('leads', seedRealData.leads);
+if (seedRealData.opportunities) writeJSON('opportunities', seedRealData.opportunities);
+if (seedRealData.complaints) writeJSON('complaints', seedRealData.complaints);
+if (!seedRealData.customers) seedDemoData();
 
 // Warm up DWH connection (optional, may fail on Render)
 if (sql) {
