@@ -184,7 +184,7 @@ async function renderDashboard() {
 
 // ==================== VISITS (3 Sections) ====================
 var _visitsTab = 'sales';
-function renderVisits(){
+async function renderVisits(){
   var c=document.getElementById("content-area");
   var hb=document.getElementById("header-action-btn");
   hb.style.display='inline-flex'; hb.textContent='+ Add Visit'; hb.onclick=function(){showVisitForm();};
@@ -358,8 +358,11 @@ async function showApp() {
   document.getElementById("sidebar-name").textContent = state.user.name||state.user.username;
   document.getElementById("sidebar-role").textContent = (state.user.role||"").replace(/_/g," ").replace(/\b\w/g,function(l){return l.toUpperCase()});
   state.navHistory = []; state.currentTab = "dashboard";
-  try { state.accounts = await apiGet("/api/accounts"); try { var cd = await apiGet("/api/customers/dwh"); if (cd && cd.length > 0) state.customers = cd; else state.customers = await apiGet("/api/customers"); } catch(e) { state.customers = await apiGet("/api/customers"); } } catch(e) {}
   renderPage();
+  setTimeout(async function(){
+    try { state.accounts = await apiGet("/api/accounts"); } catch(e) {}
+    try { var cd = await apiGet("/api/customers/dwh"); if (cd && cd.length > 0) state.customers = cd; } catch(e) {}
+  }, 500);
 }
 
 document.getElementById("login-form").addEventListener("submit", handleLogin);

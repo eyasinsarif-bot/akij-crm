@@ -1,6 +1,7 @@
 const express = require('express');
 const crypto = require('crypto');
-const sql = require('mssql');
+let sql = null;
+try { sql = require('mssql'); } catch(e) { console.log('mssql not available:', e.message); }
 const fs = require('fs');
 const path = require('path');
 
@@ -14,19 +15,23 @@ const BU_ID = 211;
 // DWH pool for CRM data
 let dwhPool = null;
 async function getDWHPool() {
+  if (!sql) throw new Error('SQL not available');
   if (dwhPool && dwhPool.connected) return dwhPool;
-  dwhPool = await new sql.ConnectionPool({
-    server: '203.202.241.211', port: 1433, database: 'DWH',
-    user: 'mcp_user', password: 'iAOS@35o997',
-    options: { encrypt: false, trustServerCertificate: true },
-    connectionTimeout: 15000, requestTimeout: 30000,
-    pool: { max: 5, min: 1, idleTimeoutMillis: 30000 }
-  }).connect();
-  console.log('DWH connected');
-  return dwhPool;
+  try {
+    dwhPool = await new sql.ConnectionPool({
+      server: '203.202.241.211', port: 1433, database: 'DWH',
+      user: 'mcp_user', password: 'iAOS@35o997',
+      options: { encrypt: false, trustServerCertificate: true },
+      connectionTimeout: 15000, requestTimeout: 30000,
+      pool: { max: 5, min: 1, idleTimeoutMillis: 30000 }
+    }).connect();
+    console.log('DWH connected');
+    return dwhPool;
+  } catch(e) { console.log('DWH SQL failed:', e.message); throw e; }
 }
 
 async function runDWHQuery(query) {
+  if (!sql) throw new Error('SQL not available');
   const p = await getDWHPool();
   const r = await p.request().query(query);
   return r.recordset;
@@ -39,19 +44,23 @@ if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
 // SQL Server pool
 let pool = null;
 async function getPool() {
+  if (!sql) throw new Error('SQL not available');
   if (pool && pool.connected) return pool;
-  pool = await sql.connect({
-    server: '203.202.241.211', port: 1433, database: 'DataMart',
-    user: 'mcp_user', password: 'iAOS@35o997',
-    options: { encrypt: false, trustServerCertificate: true },
-    connectionTimeout: 15000, requestTimeout: 30000,
-    pool: { max: 5, min: 1, idleTimeoutMillis: 30000 }
-  });
-  console.log('SQL Server connected - DataMart');
-  return pool;
+  try {
+    pool = await sql.connect({
+      server: '203.202.241.211', port: 1433, database: 'DataMart',
+      user: 'mcp_user', password: 'iAOS@35o997',
+      options: { encrypt: false, trustServerCertificate: true },
+      connectionTimeout: 15000, requestTimeout: 30000,
+      pool: { max: 5, min: 1, idleTimeoutMillis: 30000 }
+    });
+    console.log('SQL Server connected - DataMart');
+    return pool;
+  } catch(e) { console.log('DataMart SQL failed:', e.message); throw e; }
 }
 
 async function runQuery(query) {
+  if (!sql) throw new Error('SQL not available');
   const p = await getPool();
   const r = await p.request().query(query);
   return r.recordset;
@@ -574,11 +583,13 @@ wipeDataFiles();
 seedAccounts();
 seedDemoData();
 
-// Warm up DWH connection
-setTimeout(async () => {
-  try { const p = await getDWHPool(); console.log('DWH warm-up: connected'); }
-  catch(e) { console.log('DWH warm-up failed (non-critical):', e.message); }
-}, 1000);
+// Warm up DWH connection (optional, may fail on Render)
+if (sql) {
+  setTimeout(async () => {
+    try { await getDWHPool(); console.log('DWH warm-up: connected'); }
+    catch(e) { console.log('DWH warm-up failed (non-critical):', e.message); }
+  }, 1000);
+}
 
 app.listen(PORT, () => {
   console.log(`NTL CRM - Nobayon Traders Ltd. (BU 211) running on http://localhost:${PORT}`);
