@@ -285,13 +285,13 @@ async function computeDashboardData() {
   var realPipelineValue = pipelineValue;
   var realOpenLeads = openLeads;
 
-  if (sql && !dwhFailed) {
-    var cRes = await safeDWHQuery('SELECT COUNT(*) as cnt FROM prt.tblBusinessPartnerArc WHERE intBusinessUnitId=' + BU_ID + " AND isActive=1 AND strPartnerSalesType='Customer'", 2500);
+  if (sql && !dwhFailed && !isRender) {
+    var cRes = await safeDWHQuery('SELECT COUNT(*) as cnt FROM prt.tblBusinessPartnerArc WHERE intBusinessUnitId=' + BU_ID + " AND isActive=1 AND strPartnerSalesType='Customer'", 500);
     if (cRes && cRes[0]) realCustomerCount = cRes[0].cnt;
-    var oRes = await safeDWHQuery('SELECT COUNT(*) as total_orders, SUM(numTotalOrderValue) as total_sales, SUM(CASE WHEN isCompleted=0 THEN 1 ELSE 0 END) as pending FROM oms.tblSalesOrderHeaderArc WHERE intBusinessUnitId=' + BU_ID, 2500);
+    var oRes = await safeDWHQuery('SELECT COUNT(*) as total_orders, SUM(numTotalOrderValue) as total_sales, SUM(CASE WHEN isCompleted=0 THEN 1 ELSE 0 END) as pending FROM oms.tblSalesOrderHeaderArc WHERE intBusinessUnitId=' + BU_ID, 500);
     if (oRes && oRes[0]) { realOrderCount = oRes[0].total_orders; realTotalSales = oRes[0].total_sales || 0; realPendingOrders = oRes[0].pending || 0; }
     realOpenLeads = realPendingOrders;
-    var pRes = await safeDWHQuery('SELECT SUM(numTotalOrderValue) as total FROM oms.tblSalesOrderHeaderArc WHERE intBusinessUnitId=' + BU_ID + ' AND isCompleted=0 AND isApproved=1 AND isRejected=0', 2500);
+    var pRes = await safeDWHQuery('SELECT SUM(numTotalOrderValue) as total FROM oms.tblSalesOrderHeaderArc WHERE intBusinessUnitId=' + BU_ID + ' AND isCompleted=0 AND isApproved=1 AND isRejected=0', 500);
     if (pRes && pRes[0]) realPipelineValue = pRes[0].total || 0;
   }
 
@@ -315,9 +315,9 @@ async function computeDashboardData() {
   }).sort(function (a, b) { return (b.pct || -1) - (a.pct || -1); });
 
   var financial = null;
-  if (sql && !sqlFailed) {
+  if (sql && !sqlFailed && !isRender) {
     try {
-      var fRes = await safeQuery('SELECT SUM(CASE WHEN numAmount < 0 THEN ABS(numAmount) ELSE 0 END) as totalRevenue, SUM(CASE WHEN strFSComponentName = \'Cost Of Goods Sold\' THEN numAmount ELSE 0 END) as cogs, SUM(numAmount) as netIncome, COUNT(*) as totalTx FROM [dbo].[tblISTransaction] WHERE intBusinessUnitId = ' + BU_ID, 2000);
+      var fRes = await safeQuery('SELECT SUM(CASE WHEN numAmount < 0 THEN ABS(numAmount) ELSE 0 END) as totalRevenue, SUM(CASE WHEN strFSComponentName = \'Cost Of Goods Sold\' THEN numAmount ELSE 0 END) as cogs, SUM(numAmount) as netIncome, COUNT(*) as totalTx FROM [dbo].[tblISTransaction] WHERE intBusinessUnitId = ' + BU_ID, 500);
       if (fRes && fRes[0]) financial = fRes[0];
     } catch (e) {}
   }
@@ -811,3 +811,4 @@ app.listen(PORT, function () {
   var exec = require('child_process').exec;
   exec('start http://localhost:' + PORT);
 });
+
