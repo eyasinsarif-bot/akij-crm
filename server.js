@@ -41,10 +41,11 @@ app.use(express.json({ limit: '10mb' }));
 app.use(express.static(path.join(__dirname, 'public')));
 if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
 
-// SQL Server pool
+// SQL Server pool (with fast fail)
+let sqlFailed = false;
 let pool = null;
 async function getPool() {
-  if (!sql) throw new Error('SQL not available');
+  if (!sql || sqlFailed) throw new Error('SQL not available');
   if (pool && pool.connected) return pool;
   try {
     pool = await sql.connect({
@@ -56,7 +57,7 @@ async function getPool() {
     });
     console.log('SQL Server connected - DataMart');
     return pool;
-  } catch(e) { console.log('DataMart SQL failed:', e.message); throw e; }
+  } catch(e) { console.log('DataMart SQL failed:', e.message); sqlFailed = true; throw e; }
 }
 
 async function runQuery(query) {
