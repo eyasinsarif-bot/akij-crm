@@ -771,6 +771,12 @@ function seedDemoData() {
   if (seedRealData.complaints) {
     writeJSON('complaints', seedRealData.complaints);
   }
+  if (seedRealData.visits) {
+    writeJSON('visits', seedRealData.visits);
+  }
+  if (seedRealData.accounts) {
+    writeJSON('accounts', seedRealData.accounts);
+  }
 
   if (!seedRealData.customers) {
     seedDemoData();
