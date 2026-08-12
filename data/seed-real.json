@@ -14117,7 +14117,9 @@
       "code": "NTL-store-007",
       "isActive": true,
       "supervisor": "Abdul Hye",
-      "supervisor_role": "Senior Officer"
+      "supervisor_role": "Senior Officer",
+      "line_manager": "Md. Nazmul Huda",
+      "lm_role": "Senior Officer"
     },
     {
       "name": "MD. HUMAYUN",
@@ -14125,7 +14127,9 @@
       "code": "NTL-store-001",
       "isActive": true,
       "supervisor": "Abdul Hye",
-      "supervisor_role": "Senior Officer"
+      "supervisor_role": "Senior Officer",
+      "line_manager": "Md. Nazmul Huda",
+      "lm_role": "Senior Officer"
     },
     {
       "name": "Md. Nahid",
@@ -14133,7 +14137,9 @@
       "code": "NTL-store-009",
       "isActive": true,
       "supervisor": "Abdul Hye",
-      "supervisor_role": "Senior Officer"
+      "supervisor_role": "Senior Officer",
+      "line_manager": "Md. Nazmul Huda",
+      "lm_role": "Senior Officer"
     },
     {
       "name": "MD.ATIKUR RAHMAN",
@@ -14141,7 +14147,9 @@
       "code": "NTL-store-008",
       "isActive": true,
       "supervisor": "Abdul Hye",
-      "supervisor_role": "Senior Officer"
+      "supervisor_role": "Senior Officer",
+      "line_manager": "Md. Nazmul Huda",
+      "lm_role": "Senior Officer"
     },
     {
       "name": "Zulkamin Habib",
@@ -14149,7 +14157,9 @@
       "code": "NTL-Store-011",
       "isActive": true,
       "supervisor": "Abdul Hye",
-      "supervisor_role": "Senior Officer"
+      "supervisor_role": "Senior Officer",
+      "line_manager": "Md. Nazmul Huda",
+      "lm_role": "Senior Officer"
     },
     {
       "name": "Md. Abdul Hayat",
@@ -14157,7 +14167,9 @@
       "code": "NTL-store-004",
       "isActive": true,
       "supervisor": "Bashir Alam",
-      "supervisor_role": "Senior Manager"
+      "supervisor_role": "Senior Manager",
+      "line_manager": "Bashir Alam",
+      "lm_role": "Senior Manager"
     },
     {
       "name": "Md. Nazmul Huda",
@@ -14165,7 +14177,9 @@
       "code": "AAFL-WH-010",
       "isActive": true,
       "supervisor": "Bashir Alam",
-      "supervisor_role": "Senior Manager"
+      "supervisor_role": "Senior Manager",
+      "line_manager": "Bashir Alam",
+      "lm_role": "Senior Manager"
     },
     {
       "name": "Abdul Kuddus",
@@ -14173,7 +14187,9 @@
       "code": "AF-289",
       "isActive": true,
       "supervisor": "Ekramul Kabir",
-      "supervisor_role": "Senior Officer"
+      "supervisor_role": "Senior Officer",
+      "line_manager": "Bashir Alam",
+      "lm_role": "Senior Manager"
     },
     {
       "name": "Ashraful Alam",
@@ -14181,7 +14197,9 @@
       "code": "AAFL-OPRT-0001",
       "isActive": true,
       "supervisor": "Kazi Sibbir Ahammad",
-      "supervisor_role": "Chief Business Officer"
+      "supervisor_role": "Chief Business Officer",
+      "line_manager": "Kazi Sibbir Ahammad",
+      "lm_role": "Chief Business Officer"
     },
     {
       "name": "Feroz Hossain",
@@ -14189,7 +14207,9 @@
       "code": "MTL-OPR-07",
       "isActive": true,
       "supervisor": "Kazi Sibbir Ahammad",
-      "supervisor_role": "Chief Business Officer"
+      "supervisor_role": "Chief Business Officer",
+      "line_manager": "Kazi Sibbir Ahammad",
+      "lm_role": "Chief Business Officer"
     },
     {
       "name": "K M Atiqul Islam",
@@ -14197,7 +14217,9 @@
       "code": "ACL-OPR-17",
       "isActive": true,
       "supervisor": "Kazi Sibbir Ahammad",
-      "supervisor_role": "Chief Business Officer"
+      "supervisor_role": "Chief Business Officer",
+      "line_manager": "Kazi Sibbir Ahammad",
+      "lm_role": "Chief Business Officer"
     },
     {
       "name": "Md Abu Bakkar Siddik",
@@ -14205,7 +14227,9 @@
       "code": "AAFL-OPR-05",
       "isActive": true,
       "supervisor": "Kazi Sibbir Ahammad",
-      "supervisor_role": "Chief Business Officer"
+      "supervisor_role": "Chief Business Officer",
+      "line_manager": "Kazi Sibbir Ahammad",
+      "lm_role": "Chief Business Officer"
     },
     {
       "name": "MD Eynul  Hoque",
@@ -14213,7 +14237,9 @@
       "code": "NTL-OPR-02",
       "isActive": true,
       "supervisor": "Kazi Sibbir Ahammad",
-      "supervisor_role": "Chief Business Officer"
+      "supervisor_role": "Chief Business Officer",
+      "line_manager": "Kazi Sibbir Ahammad",
+      "lm_role": "Chief Business Officer"
     },
     {
       "name": "MD ROBIN HOSSEN",
@@ -14221,7 +14247,9 @@
       "code": "NTL-OPR-08",
       "isActive": true,
       "supervisor": "Kazi Sibbir Ahammad",
-      "supervisor_role": "Chief Business Officer"
+      "supervisor_role": "Chief Business Officer",
+      "line_manager": "Kazi Sibbir Ahammad",
+      "lm_role": "Chief Business Officer"
     },
     {
       "name": "MD SHAHIN BABU",
@@ -14229,7 +14257,9 @@
       "code": "NTL-OPR-04",
       "isActive": true,
       "supervisor": "Kazi Sibbir Ahammad",
-      "supervisor_role": "Chief Business Officer"
+      "supervisor_role": "Chief Business Officer",
+      "line_manager": "Kazi Sibbir Ahammad",
+      "lm_role": "Chief Business Officer"
     },
     {
       "name": "Md Shoib Reza Rajib",
@@ -14237,7 +14267,9 @@
       "code": "ACL-OPR-18",
       "isActive": true,
       "supervisor": "Kazi Sibbir Ahammad",
-      "supervisor_role": "Chief Business Officer"
+      "supervisor_role": "Chief Business Officer",
+      "line_manager": "Kazi Sibbir Ahammad",
+      "lm_role": "Chief Business Officer"
     },
     {
       "name": "Md. Asaduzzaman",
@@ -14245,7 +14277,9 @@
       "code": "NTL-OPR-03",
       "isActive": true,
       "supervisor": "Kazi Sibbir Ahammad",
-      "supervisor_role": "Chief Business Officer"
+      "supervisor_role": "Chief Business Officer",
+      "line_manager": "Kazi Sibbir Ahammad",
+      "lm_role": "Chief Business Officer"
     },
     {
       "name": "Md. Golam Rabbi",
@@ -14253,7 +14287,9 @@
       "code": "AAFL-OPR-02",
       "isActive": true,
       "supervisor": "Kazi Sibbir Ahammad",
-      "supervisor_role": "Chief Business Officer"
+      "supervisor_role": "Chief Business Officer",
+      "line_manager": "Kazi Sibbir Ahammad",
+      "lm_role": "Chief Business Officer"
     },
     {
       "name": "Md. Nazmul Hasan Joy",
@@ -14261,7 +14297,9 @@
       "code": "AAFL-OPR-09",
       "isActive": true,
       "supervisor": "Kazi Sibbir Ahammad",
-      "supervisor_role": "Chief Business Officer"
+      "supervisor_role": "Chief Business Officer",
+      "line_manager": "Kazi Sibbir Ahammad",
+      "lm_role": "Chief Business Officer"
     },
     {
       "name": "Md. Shahidullah",
@@ -14269,7 +14307,9 @@
       "code": "AAFL-CRM-001",
       "isActive": true,
       "supervisor": "Kazi Sibbir Ahammad",
-      "supervisor_role": "Chief Business Officer"
+      "supervisor_role": "Chief Business Officer",
+      "line_manager": "Kazi Sibbir Ahammad",
+      "lm_role": "Chief Business Officer"
     },
     {
       "name": "Md. Yasin Ali Ridoy ",
@@ -14277,7 +14317,9 @@
       "code": "AAFL-OPR-1",
       "isActive": true,
       "supervisor": "Kazi Sibbir Ahammad",
-      "supervisor_role": "Chief Business Officer"
+      "supervisor_role": "Chief Business Officer",
+      "line_manager": "Kazi Sibbir Ahammad",
+      "lm_role": "Chief Business Officer"
     },
     {
       "name": "Md. Yousuf Ali Pk",
@@ -14285,7 +14327,9 @@
       "code": "NTL-OPR-01",
       "isActive": true,
       "supervisor": "Kazi Sibbir Ahammad",
-      "supervisor_role": "Chief Business Officer"
+      "supervisor_role": "Chief Business Officer",
+      "line_manager": "Kazi Sibbir Ahammad",
+      "lm_role": "Chief Business Officer"
     },
     {
       "name": "Md.Enamul Hoque",
@@ -14293,7 +14337,9 @@
       "code": "NTL-OPR-09",
       "isActive": true,
       "supervisor": "Kazi Sibbir Ahammad",
-      "supervisor_role": "Chief Business Officer"
+      "supervisor_role": "Chief Business Officer",
+      "line_manager": "Kazi Sibbir Ahammad",
+      "lm_role": "Chief Business Officer"
     },
     {
       "name": "MD.MONJURUL ISLAM",
@@ -14301,7 +14347,9 @@
       "code": "NTL-OPR-07",
       "isActive": true,
       "supervisor": "Kazi Sibbir Ahammad",
-      "supervisor_role": "Chief Business Officer"
+      "supervisor_role": "Chief Business Officer",
+      "line_manager": "Kazi Sibbir Ahammad",
+      "lm_role": "Chief Business Officer"
     },
     {
       "name": "Md.Mukter Hosain",
@@ -14309,7 +14357,9 @@
       "code": "AAFL-OPR-06",
       "isActive": true,
       "supervisor": "Kazi Sibbir Ahammad",
-      "supervisor_role": "Chief Business Officer"
+      "supervisor_role": "Chief Business Officer",
+      "line_manager": "Kazi Sibbir Ahammad",
+      "lm_role": "Chief Business Officer"
     },
     {
       "name": "Md.Rabiul Islam",
@@ -14317,7 +14367,9 @@
       "code": "NTL-OPR-05",
       "isActive": true,
       "supervisor": "Kazi Sibbir Ahammad",
-      "supervisor_role": "Chief Business Officer"
+      "supervisor_role": "Chief Business Officer",
+      "line_manager": "Kazi Sibbir Ahammad",
+      "lm_role": "Chief Business Officer"
     },
     {
       "name": "MD.READUZZAMAN ",
@@ -14325,7 +14377,9 @@
       "code": "AAFL-OPR-14",
       "isActive": true,
       "supervisor": "Kazi Sibbir Ahammad",
-      "supervisor_role": "Chief Business Officer"
+      "supervisor_role": "Chief Business Officer",
+      "line_manager": "Kazi Sibbir Ahammad",
+      "lm_role": "Chief Business Officer"
     },
     {
       "name": "Muhammad Mamunur Rashid",
@@ -14333,7 +14387,9 @@
       "code": "AAFL-OPR-13",
       "isActive": true,
       "supervisor": "Kazi Sibbir Ahammad",
-      "supervisor_role": "Chief Business Officer"
+      "supervisor_role": "Chief Business Officer",
+      "line_manager": "Kazi Sibbir Ahammad",
+      "lm_role": "Chief Business Officer"
     },
     {
       "name": "Nripendra Chandra Das",
@@ -14341,7 +14397,9 @@
       "code": "NTL-OPR-06",
       "isActive": true,
       "supervisor": "Kazi Sibbir Ahammad",
-      "supervisor_role": "Chief Business Officer"
+      "supervisor_role": "Chief Business Officer",
+      "line_manager": "Kazi Sibbir Ahammad",
+      "lm_role": "Chief Business Officer"
     },
     {
       "name": "Rafiqul Islam",
@@ -14349,7 +14407,9 @@
       "code": "AAFL-OPR-10",
       "isActive": true,
       "supervisor": "Kazi Sibbir Ahammad",
-      "supervisor_role": "Chief Business Officer"
+      "supervisor_role": "Chief Business Officer",
+      "line_manager": "Md. Tofael Hossain",
+      "lm_role": "Assistant General Manager"
     },
     {
       "name": "Razu Ahmmed ",
@@ -14357,7 +14417,9 @@
       "code": "AAFL-OPR-04",
       "isActive": true,
       "supervisor": "Kazi Sibbir Ahammad",
-      "supervisor_role": "Chief Business Officer"
+      "supervisor_role": "Chief Business Officer",
+      "line_manager": "Kazi Sibbir Ahammad",
+      "lm_role": "Chief Business Officer"
     },
     {
       "name": "Sheikh Md. Jaglul",
@@ -14365,7 +14427,9 @@
       "code": "AAFL-OPR-03",
       "isActive": true,
       "supervisor": "Kazi Sibbir Ahammad",
-      "supervisor_role": "Chief Business Officer"
+      "supervisor_role": "Chief Business Officer",
+      "line_manager": "Kazi Sibbir Ahammad",
+      "lm_role": "Chief Business Officer"
     },
     {
       "name": "Shek Jasim Uddin",
@@ -14373,7 +14437,9 @@
       "code": "AAFL-Trad-0001",
       "isActive": true,
       "supervisor": "Kazi Sibbir Ahammad",
-      "supervisor_role": "Chief Business Officer"
+      "supervisor_role": "Chief Business Officer",
+      "line_manager": "Kazi Sibbir Ahammad",
+      "lm_role": "Chief Business Officer"
     },
     {
       "name": "Sohrab Ahmed Yousuf ",
@@ -14381,7 +14447,9 @@
       "code": "NT-Logistics-01",
       "isActive": true,
       "supervisor": "Md. Asaduzzaman",
-      "supervisor_role": "Chief Executive Officer"
+      "supervisor_role": "Chief Executive Officer",
+      "line_manager": "Md. Asaduzzaman",
+      "lm_role": "Chief Executive Officer"
     },
     {
       "name": "Al Amin",
@@ -14389,7 +14457,9 @@
       "code": "AEL-SK-113",
       "isActive": true,
       "supervisor": "Md. Nazmul Huda",
-      "supervisor_role": "Senior Officer"
+      "supervisor_role": "Senior Officer",
+      "line_manager": "Md. Nazmul Huda",
+      "lm_role": "Senior Officer"
     },
     {
       "name": "Amirul Islam",
@@ -14397,7 +14467,9 @@
       "code": "AAFL-SK-012",
       "isActive": true,
       "supervisor": "Md. Nazmul Huda",
-      "supervisor_role": "Senior Officer"
+      "supervisor_role": "Senior Officer",
+      "line_manager": "Md. Nazmul Huda",
+      "lm_role": "Senior Officer"
     },
     {
       "name": "Anwar Hossen",
@@ -14405,7 +14477,9 @@
       "code": "ACL-SK-007",
       "isActive": true,
       "supervisor": "Md. Nazmul Huda",
-      "supervisor_role": "Senior Officer"
+      "supervisor_role": "Senior Officer",
+      "line_manager": "Md. Nazmul Huda",
+      "lm_role": "Senior Officer"
     },
     {
       "name": "Khondokar Rafiad Sadat",
@@ -14413,7 +14487,9 @@
       "code": "NTL-store-010",
       "isActive": true,
       "supervisor": "Md. Nazmul Huda",
-      "supervisor_role": "Senior Officer"
+      "supervisor_role": "Senior Officer",
+      "line_manager": "Md. Nazmul Huda",
+      "lm_role": "Senior Officer"
     },
     {
       "name": "Md Abul Kalam",
@@ -14421,7 +14497,9 @@
       "code": "AEL-COAL-STORE-04",
       "isActive": true,
       "supervisor": "Md. Nazmul Huda",
-      "supervisor_role": "Senior Officer"
+      "supervisor_role": "Senior Officer",
+      "line_manager": "Md. Nazmul Huda",
+      "lm_role": "Senior Officer"
     },
     {
       "name": "Md Anowar  Hossain",
@@ -14429,7 +14507,9 @@
       "code": "NTL-INV-003",
       "isActive": true,
       "supervisor": "Md. Nazmul Huda",
-      "supervisor_role": "Senior Officer"
+      "supervisor_role": "Senior Officer",
+      "line_manager": "Md. Nazmul Huda",
+      "lm_role": "Senior Officer"
     },
     {
       "name": "MD Jahed Hasan",
@@ -14437,7 +14517,9 @@
       "code": "NTL-store-005",
       "isActive": true,
       "supervisor": "Md. Nazmul Huda",
-      "supervisor_role": "Senior Officer"
+      "supervisor_role": "Senior Officer",
+      "line_manager": "Md. Nazmul Huda",
+      "lm_role": "Senior Officer"
     },
     {
       "name": "Md Kamrul Islam",
@@ -14445,7 +14527,9 @@
       "code": "NTL-INV-004",
       "isActive": true,
       "supervisor": "Md. Nazmul Huda",
-      "supervisor_role": "Senior Officer"
+      "supervisor_role": "Senior Officer",
+      "line_manager": "Md. Nazmul Huda",
+      "lm_role": "Senior Officer"
     },
     {
       "name": "Md. Anwar",
@@ -14453,7 +14537,9 @@
       "code": "ACL-SK-006",
       "isActive": true,
       "supervisor": "Md. Nazmul Huda",
-      "supervisor_role": "Senior Officer"
+      "supervisor_role": "Senior Officer",
+      "line_manager": "Md. Nazmul Huda",
+      "lm_role": "Senior Officer"
     },
     {
       "name": "Md. Jahid Hasan",
@@ -14461,7 +14547,9 @@
       "code": "AAFL-SK-007",
       "isActive": true,
       "supervisor": "Md. Nazmul Huda",
-      "supervisor_role": "Senior Officer"
+      "supervisor_role": "Senior Officer",
+      "line_manager": "Md. Nazmul Huda",
+      "lm_role": "Senior Officer"
     },
     {
       "name": "Md. Jubayed Hosen ",
@@ -14469,7 +14557,9 @@
       "code": "DTCL-SK-010",
       "isActive": true,
       "supervisor": "Md. Nazmul Huda",
-      "supervisor_role": "Senior Officer"
+      "supervisor_role": "Senior Officer",
+      "line_manager": "Md. Nazmul Huda",
+      "lm_role": "Senior Officer"
     },
     {
       "name": "Md. Kamruzzman",
@@ -14477,7 +14567,9 @@
       "code": "HRML-141",
       "isActive": true,
       "supervisor": "Md. Nazmul Huda",
-      "supervisor_role": "Senior Officer"
+      "supervisor_role": "Senior Officer",
+      "line_manager": "Md. Nazmul Huda",
+      "lm_role": "Senior Officer"
     },
     {
       "name": "Md. Nayeem Hossain",
@@ -14485,7 +14577,9 @@
       "code": "AAFL-SK-005",
       "isActive": true,
       "supervisor": "Md. Nazmul Huda",
-      "supervisor_role": "Senior Officer"
+      "supervisor_role": "Senior Officer",
+      "line_manager": "Md. Nazmul Huda",
+      "lm_role": "Senior Officer"
     },
     {
       "name": "Md. Rabiul Islam",
@@ -14493,7 +14587,9 @@
       "code": "ACCL-2411",
       "isActive": true,
       "supervisor": "Md. Nazmul Huda",
-      "supervisor_role": "Senior Officer"
+      "supervisor_role": "Senior Officer",
+      "line_manager": "Md. Nazmul Huda",
+      "lm_role": "Senior Officer"
     },
     {
       "name": "MD. RIMON HASAN",
@@ -14501,7 +14597,9 @@
       "code": "NTL-store-006",
       "isActive": true,
       "supervisor": "Md. Nazmul Huda",
-      "supervisor_role": "Senior Officer"
+      "supervisor_role": "Senior Officer",
+      "line_manager": "Md. Nazmul Huda",
+      "lm_role": "Senior Officer"
     },
     {
       "name": "Md. Sah Kamal Molla",
@@ -14509,7 +14607,9 @@
       "code": "AAFL-SK-010",
       "isActive": true,
       "supervisor": "Md. Nazmul Huda",
-      "supervisor_role": "Senior Officer"
+      "supervisor_role": "Senior Officer",
+      "line_manager": "Md. Nazmul Huda",
+      "lm_role": "Senior Officer"
     },
     {
       "name": "Md. Shafikul Islam",
@@ -14517,7 +14617,9 @@
       "code": "AEL-SK-110",
       "isActive": true,
       "supervisor": "Md. Nazmul Huda",
-      "supervisor_role": "Senior Officer"
+      "supervisor_role": "Senior Officer",
+      "line_manager": "Md. Nazmul Huda",
+      "lm_role": "Senior Officer"
     },
     {
       "name": "Md. Shahinur Alom",
@@ -14525,7 +14627,9 @@
       "code": "ACL-SK-004",
       "isActive": true,
       "supervisor": "Md. Nazmul Huda",
-      "supervisor_role": "Senior Officer"
+      "supervisor_role": "Senior Officer",
+      "line_manager": "Md. Nazmul Huda",
+      "lm_role": "Senior Officer"
     },
     {
       "name": "Md. Shakaoyat Hossain",
@@ -14533,7 +14637,9 @@
       "code": "ACL-SK-005",
       "isActive": true,
       "supervisor": "Md. Nazmul Huda",
-      "supervisor_role": "Senior Officer"
+      "supervisor_role": "Senior Officer",
+      "line_manager": "Md. Nazmul Huda",
+      "lm_role": "Senior Officer"
     },
     {
       "name": "Md. Shakib Islam",
@@ -14541,7 +14647,9 @@
       "code": "AAFL-SK-011",
       "isActive": true,
       "supervisor": "Md. Nazmul Huda",
-      "supervisor_role": "Senior Officer"
+      "supervisor_role": "Senior Officer",
+      "line_manager": "Md. Nazmul Huda",
+      "lm_role": "Senior Officer"
     },
     {
       "name": "Md. Talha",
@@ -14549,7 +14657,9 @@
       "code": "AAFL-SK-013",
       "isActive": true,
       "supervisor": "Md. Nazmul Huda",
-      "supervisor_role": "Senior Officer"
+      "supervisor_role": "Senior Officer",
+      "line_manager": "Md. Nazmul Huda",
+      "lm_role": "Senior Officer"
     },
     {
       "name": "Md. Thosaddek Ali",
@@ -14557,7 +14667,9 @@
       "code": "NTL-INV-002",
       "isActive": true,
       "supervisor": "Md. Nazmul Huda",
-      "supervisor_role": "Senior Officer"
+      "supervisor_role": "Senior Officer",
+      "line_manager": "Md. Nazmul Huda",
+      "lm_role": "Senior Officer"
     },
     {
       "name": "Md.Sahadat Ali",
@@ -14565,7 +14677,9 @@
       "code": "NTL-INV-005",
       "isActive": true,
       "supervisor": "Md. Nazmul Huda",
-      "supervisor_role": "Senior Officer"
+      "supervisor_role": "Senior Officer",
+      "line_manager": "Md. Nazmul Huda",
+      "lm_role": "Senior Officer"
     },
     {
       "name": "MD.SHAMIM HOSSAIN",
@@ -14573,7 +14687,9 @@
       "code": "NTL-store-003",
       "isActive": true,
       "supervisor": "Md. Nazmul Huda",
-      "supervisor_role": "Senior Officer"
+      "supervisor_role": "Senior Officer",
+      "line_manager": "Md. Nazmul Huda",
+      "lm_role": "Senior Officer"
     },
     {
       "name": "Nur Mohammad",
@@ -14581,7 +14697,9 @@
       "code": "FAL-148",
       "isActive": true,
       "supervisor": "Md. Nazmul Huda",
-      "supervisor_role": "Senior Officer"
+      "supervisor_role": "Senior Officer",
+      "line_manager": "Md. Nazmul Huda",
+      "lm_role": "Senior Officer"
     },
     {
       "name": "Parimal Chandra",
@@ -14589,7 +14707,9 @@
       "code": "AAFL-SK-002",
       "isActive": true,
       "supervisor": "Md. Nazmul Huda",
-      "supervisor_role": "Senior Officer"
+      "supervisor_role": "Senior Officer",
+      "line_manager": "Md. Nazmul Huda",
+      "lm_role": "Senior Officer"
     },
     {
       "name": "S M Alamgir Hossain",
@@ -14597,7 +14717,9 @@
       "code": "NTL-INV-006",
       "isActive": true,
       "supervisor": "Md. Nazmul Huda",
-      "supervisor_role": "Senior Officer"
+      "supervisor_role": "Senior Officer",
+      "line_manager": "Md. Nazmul Huda",
+      "lm_role": "Senior Officer"
     },
     {
       "name": "Shahjahan Islam",
@@ -14605,7 +14727,9 @@
       "code": "AAFL-INV-OP-15",
       "isActive": true,
       "supervisor": "Md. Nazmul Huda",
-      "supervisor_role": "Senior Officer"
+      "supervisor_role": "Senior Officer",
+      "line_manager": "Md. Nazmul Huda",
+      "lm_role": "Senior Officer"
     },
     {
       "name": "Sraban Das ",
@@ -14613,7 +14737,9 @@
       "code": "ACL-SK-001",
       "isActive": true,
       "supervisor": "Md. Nazmul Huda",
-      "supervisor_role": "Senior Officer"
+      "supervisor_role": "Senior Officer",
+      "line_manager": "Md. Nazmul Huda",
+      "lm_role": "Senior Officer"
     },
     {
       "name": "TANVEER HOSSAIN",
@@ -14621,7 +14747,9 @@
       "code": "NTL-store-012",
       "isActive": true,
       "supervisor": "Md. Nazmul Huda",
-      "supervisor_role": "Senior Officer"
+      "supervisor_role": "Senior Officer",
+      "line_manager": "Bashir Alam",
+      "lm_role": "Senior Manager"
     },
     {
       "name": "Abir Ahmed Khan",
@@ -14629,7 +14757,9 @@
       "code": "NTL-MKT-001",
       "isActive": true,
       "supervisor": "Md. Shahidullah",
-      "supervisor_role": "Deputy Manager"
+      "supervisor_role": "Deputy Manager",
+      "line_manager": "Kazi Sibbir Ahammad",
+      "lm_role": "Chief Business Officer"
     },
     {
       "name": "Eyasin sarif",
@@ -14637,7 +14767,9 @@
       "code": "AAFL-OPR-11",
       "isActive": true,
       "supervisor": "Md. Shahidullah",
-      "supervisor_role": "Deputy Manager"
+      "supervisor_role": "Deputy Manager",
+      "line_manager": "Kazi Sibbir Ahammad",
+      "lm_role": "Chief Business Officer"
     },
     {
       "name": "Rafiur Rahman",
@@ -14645,7 +14777,9 @@
       "code": "AAFL-OPR-08",
       "isActive": true,
       "supervisor": "Md. Shahidullah",
-      "supervisor_role": "Deputy Manager"
+      "supervisor_role": "Deputy Manager",
+      "line_manager": "Kazi Sibbir Ahammad",
+      "lm_role": "Chief Business Officer"
     },
     {
       "name": "Shobuj Islam ",
@@ -14653,7 +14787,9 @@
       "code": "AAFL-OPR-15",
       "isActive": true,
       "supervisor": "Md. Shahidullah",
-      "supervisor_role": "Deputy Manager"
+      "supervisor_role": "Deputy Manager",
+      "line_manager": "Md. Shahidullah",
+      "lm_role": "Deputy Manager"
     },
     {
       "name": "Taskia Ameen",
@@ -14661,7 +14797,9 @@
       "code": "AR-038",
       "isActive": true,
       "supervisor": "Md. Shahidullah",
-      "supervisor_role": "Deputy Manager"
+      "supervisor_role": "Deputy Manager",
+      "line_manager": "Kazi Sibbir Ahammad",
+      "lm_role": "Chief Business Officer"
     },
     {
       "name": "Kazi Sibbir Ahammad",
@@ -14669,7 +14807,9 @@
       "code": "AAFL-HO-0027",
       "isActive": true,
       "supervisor": "Shahriar Istiaq Halim",
-      "supervisor_role": "Chief Executive Officer"
+      "supervisor_role": "Chief Executive Officer",
+      "line_manager": "Shahriar Istiaq Halim",
+      "lm_role": "Chief Executive Officer"
     },
     {
       "name": "Khandaker Shahed Hossen ",
@@ -14677,7 +14817,9 @@
       "code": "AAFL-325",
       "isActive": true,
       "supervisor": "Sohrab Ahmed Yousuf ",
-      "supervisor_role": "Senior Officer"
+      "supervisor_role": "Senior Officer",
+      "line_manager": "Sohrab Ahmed Yousuf ",
+      "lm_role": "Senior Officer"
     },
     {
       "name": "Md Shariful Islam",
@@ -14685,7 +14827,9 @@
       "code": "AAFL-OPR-17",
       "isActive": true,
       "supervisor": "Sohrab Ahmed Yousuf ",
-      "supervisor_role": "Senior Officer"
+      "supervisor_role": "Senior Officer",
+      "line_manager": "Sohrab Ahmed Yousuf ",
+      "lm_role": "Senior Officer"
     },
     {
       "name": "MD. Jubayer Hossain",
@@ -14693,7 +14837,9 @@
       "code": "AAFL-137",
       "isActive": true,
       "supervisor": "Sohrab Ahmed Yousuf ",
-      "supervisor_role": "Senior Officer"
+      "supervisor_role": "Senior Officer",
+      "line_manager": "Sohrab Ahmed Yousuf ",
+      "lm_role": "Senior Officer"
     },
     {
       "name": "Md. Nazmul Huda ",
@@ -14701,7 +14847,9 @@
       "code": "AR-037",
       "isActive": true,
       "supervisor": "Sohrab Ahmed Yousuf ",
-      "supervisor_role": "Senior Officer"
+      "supervisor_role": "Senior Officer",
+      "line_manager": "Sohrab Ahmed Yousuf ",
+      "lm_role": "Senior Officer"
     },
     {
       "name": "Robiul Hasan ",
@@ -14709,7 +14857,9 @@
       "code": "NTL-0010",
       "isActive": true,
       "supervisor": "Sohrab Ahmed Yousuf ",
-      "supervisor_role": "Senior Officer"
+      "supervisor_role": "Senior Officer",
+      "line_manager": "Sohrab Ahmed Yousuf ",
+      "lm_role": "Senior Officer"
     }
   ],
   "financial": {

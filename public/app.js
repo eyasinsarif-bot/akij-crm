@@ -231,7 +231,7 @@ async function deleteVisit(id){
 // ==================== TEAM MANAGEMENT ====================
 async function renderTeam() {
   var c = document.getElementById("content-area");
-  try { var emps = await apiGet("/api/employees/dwh"); if (emps && emps.length > 0) state._employees = emps; } catch(e) {}
+  try { var emps = await apiGet("/api/employees/dwh"); if (emps && emps.length > 0) state._employees = emps; else { emps = await apiGet("/api/employees"); state._employees = emps; } } catch(e) { try { state._employees = await apiGet("/api/employees"); } catch(e2) {} }
   var employees = state._employees || [];
   if (employees.length === 0) { try { state.accounts = await apiGet("/api/accounts"); state.customers = await apiGet("/api/customers"); } catch(e) {} }
   else {

@@ -562,6 +562,7 @@ registerCrud('opportunities', 'opportunities');
 registerCrud('orders', 'orders');
 registerCrud('complaints', 'complaints');
 registerCrud('visits', 'visits');
+registerCrud('employees', 'employees');
 
 // ============ ACCOUNTS CRUD (with role checks) ============
 app.get('/api/accounts', authRequired, function (req, res) {
@@ -773,6 +774,9 @@ function seedDemoData() {
   }
   if (seedRealData.visits) {
     writeJSON('visits', seedRealData.visits);
+  }
+  if (seedRealData.employees) {
+    writeJSON('employees', seedRealData.employees);
   }
   if (seedRealData.accounts) {
     writeJSON('accounts', seedRealData.accounts);
