@@ -1,38 +1,4 @@
 {
-  "accounts": [
-    {
-      "id": "ACC-00001",
-      "username": "admin",
-      "password": "",
-      "name": "System Admin",
-      "role": "super_admin",
-      "territory": "HQ"
-    },
-    {
-      "id": "ACC-00002",
-      "username": "manager",
-      "password": "",
-      "name": "Finance Manager",
-      "role": "admin",
-      "territory": "Dhaka"
-    },
-    {
-      "id": "ACC-00003",
-      "username": "accountant",
-      "password": "",
-      "name": "Senior Accountant",
-      "role": "management",
-      "territory": "Dhaka"
-    },
-    {
-      "id": "ACC-00004",
-      "username": "analyst",
-      "password": "",
-      "name": "Financial Analyst",
-      "role": "management",
-      "territory": "Dhaka"
-    }
-  ],
   "customers": [
     {
       "id": "BP-0001",
