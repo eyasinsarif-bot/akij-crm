@@ -295,8 +295,15 @@ async function computeDashboardData() {
     if (pRes && pRes[0]) realPipelineValue = pRes[0].total || 0;
   }
 
-  var spPerformance = accounts.filter(function (a) { return a.role === 'so' || a.role === 'sales_head'; }).map(function (sp) {
-    var spCusts = customers.filter(function (c) { return c.salesperson === sp.name; }).length;
+  var ntlTeam = [
+    { name: 'Kazi Sibbir Ahammad', role: 'Chief Business Officer', territory: 'Nobayon Traders Ltd.' },
+    { name: 'Shek Jasim Uddin', role: 'Senior Manager', territory: 'Trading Sales' },
+    { name: 'MD Eynul  Hoque', role: 'Deputy Manager', territory: 'Operations' },
+    { name: 'Md Shoib Reza Rajib', role: 'Assistant Manager', territory: 'Operations' }
+  ];
+
+  var spPerformance = ntlTeam.map(function (sp) {
+    var spCusts = state._realEmployees && state._realCustomers ? state._realCustomers.filter(function (c) { return c.salesperson === sp.name; }).length : customers.filter(function (c) { return c.salesperson === sp.name; }).length;
     var spVisits = visits.filter(function (v) { return v.salesperson === sp.name; }).length;
     var spOrders = orders.filter(function (o) { return o.salesperson === sp.name; });
     var spAchieved = spOrders.filter(function (o) { return o.status === 'delivered'; }).reduce(function (s, o) { return s + (o.total || 0); }, 0);
@@ -311,8 +318,8 @@ async function computeDashboardData() {
       else if (pct >= 50) ai = 'Increase visits and re-engage dormant accounts.';
       else ai = 'Coaching session recommended.';
     }
-    return { name: sp.name, username: sp.username, role: sp.role, territory: sp.territory, customers: spCusts, visits: spVisits, targetSales: targetSales, achievedSales: spAchieved, pct: pct, aiSuggestion: ai };
-  }).sort(function (a, b) { return (b.pct || -1) - (a.pct || -1); });
+    return { name: sp.name, username: sp.name, role: sp.role, territory: sp.territory, customers: spCusts, visits: spVisits, targetSales: targetSales, achievedSales: spAchieved, pct: pct, aiSuggestion: ai };
+  });
 
   var financial = null;
   if (sql && !sqlFailed && !isRender) {

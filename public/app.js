@@ -176,7 +176,7 @@ async function renderDashboard() {
   h += '<div style="overflow-x:auto"><table><thead><tr><th>Name</th><th>Territory</th><th>Customers</th><th>Visits</th><th>Target (Tk)</th><th>Achieved (Tk)</th><th>%</th><th>AI Suggestion</th></tr></thead><tbody>';
   sp.forEach(function(s){
     var pctB = s.pct===null?'<span class="badge badge-gray">N/A</span>':s.pct>=100?'<span class="badge badge-green">'+s.pct+'%</span>':s.pct>=70?'<span class="badge badge-amber">'+s.pct+'%</span>':'<span class="badge badge-red">'+s.pct+'%</span>';
-    h += '<tr class="clickable" onclick="navigate(\'customers\')"><td><strong>'+s.name+'</strong><br><span style="font-size:11px;color:var(--gray-400)">'+(s.role||"").replace("_"," ").replace(/\b\w/g,function(l){return l.toUpperCase()})+'</span></td><td>'+s.territory+'</td><td>'+s.customers+'</td><td>'+s.visits+'</td><td>Tk '+s.targetSales.toLocaleString()+'</td><td>Tk '+s.achievedSales.toLocaleString()+'</td><td>'+pctB+'</td><td><div class="ai-suggestion">'+s.aiSuggestion+'</div></td></tr>';
+    h += '<tr class="clickable" onclick="navigate(\'customers\')"><td><strong>'+s.name+'</strong><br><span style="font-size:11px;color:var(--gray-400)">'+s.role+'</span></td><td>'+s.territory+'</td><td>'+s.customers+'</td><td>'+s.visits+'</td><td>Tk '+s.targetSales.toLocaleString()+'</td><td>Tk '+s.achievedSales.toLocaleString()+'</td><td>'+pctB+'</td><td><div class="ai-suggestion">'+s.aiSuggestion+'</div></td></tr>';
   });
   h += '</tbody></table></div></div>';
   c.innerHTML = h;
