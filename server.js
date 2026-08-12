@@ -31,10 +31,20 @@ async function getDWHPool() {
 }
 
 async function runDWHQuery(query) {
-  if (!sql) throw new Error('SQL not available');
+  if (!sql || sqlFailed) throw new Error('SQL not available');
   const p = await getDWHPool();
   const r = await p.request().query(query);
   return r.recordset;
+}
+
+async function safeDWHQuery(query, timeoutMs = 3000) {
+  if (!sql || sqlFailed) return null;
+  try {
+    return await Promise.race([
+      runDWHQuery(query),
+      new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), timeoutMs))
+    ]);
+  } catch(e) { return null; }
 }
 
 app.use(express.json({ limit: '10mb' }));
@@ -60,11 +70,14 @@ async function getPool() {
   } catch(e) { console.log('DataMart SQL failed:', e.message); sqlFailed = true; throw e; }
 }
 
-async function runQuery(query) {
-  if (!sql) throw new Error('SQL not available');
-  const p = await getPool();
-  const r = await p.request().query(query);
-  return r.recordset;
+async function safeQuery(query, timeoutMs = 3000) {
+  if (!sql || sqlFailed) return null;
+  try {
+    return await Promise.race([
+      runQuery(query),
+      new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), timeoutMs))
+    ]);
+  } catch(e) { return null; }
 }
 
 // JSON file store
@@ -307,38 +320,23 @@ app.get('/api/dashboard/stats', authRequired, async (req, res) => {
     return { name: sp.name, username: sp.username, role: sp.role, territory: sp.territory, customers: spCusts, visits: spVisits, targetSales, achievedSales: spAchieved, pct, aiSuggestion: ai };
   }).sort((a, b) => (b.pct || -1) - (a.pct || -1));
 
-  // Real financial data from SQL Server
+  // Real financial data from SQL Server (quick timeout)
   let financial = null;
   try {
-    financial = await runQuery(`
-      SELECT SUM(CASE WHEN numAmount < 0 THEN ABS(numAmount) ELSE 0 END) as totalRevenue,
-        SUM(CASE WHEN strFSComponentName = 'Cost Of Goods Sold' THEN numAmount ELSE 0 END) as cogs,
-        SUM(CASE WHEN strFSComponentName IN ('Manufacturing Overhead/Cost of Service Provided','Logistics & Distribution Expenses','Selling Expenses','Administrative Expenses','Marketing Expenses','Depreciation Expenses') THEN numAmount ELSE 0 END) as opex,
-        SUM(CASE WHEN strFSComponentName = 'Financial Expenses' THEN numAmount ELSE 0 END) as financialExp,
-        SUM(CASE WHEN strFSComponentName = 'Provission For Income Tax' THEN numAmount ELSE 0 END) as tax,
-        SUM(numAmount) as netIncome,
-        COUNT(*) as totalTx
-      FROM [dbo].[tblISTransaction] WHERE intBusinessUnitId = ${BU_ID}
-    `);
-  } catch (e) { console.log('SQL Error (non-fatal):', e.message); }
+    const f = await safeQuery(`SELECT SUM(CASE WHEN numAmount < 0 THEN ABS(numAmount) ELSE 0 END) as totalRevenue, SUM(CASE WHEN strFSComponentName = 'Cost Of Goods Sold' THEN numAmount ELSE 0 END) as cogs, SUM(numAmount) as netIncome, COUNT(*) as totalTx FROM [dbo].[tblISTransaction] WHERE intBusinessUnitId = ${BU_ID}`, 3000);
+    if (f && f[0]) financial = f[0];
+  } catch (e) {}
 
   let realCustomerCount = customers.length;
   let realOrderCount = orders.length;
   let realPendingOrders = pendingOrders;
   let realTotalSales = totalSales;
-  try {
-    const dwhCount = await runDWHQuery(`SELECT COUNT(*) as cnt FROM prt.tblBusinessPartnerArc WHERE intBusinessUnitId=${BU_ID} AND isActive=1 AND strPartnerSalesType='Customer'`);
-    if (dwhCount && dwhCount[0]) realCustomerCount = dwhCount[0].cnt;
-    const ordStats = await runDWHQuery(`SELECT COUNT(*) as total_orders, SUM(numTotalOrderValue) as total_sales, SUM(CASE WHEN isCompleted=0 THEN 1 ELSE 0 END) as pending FROM oms.tblSalesOrderHeaderArc WHERE intBusinessUnitId=${BU_ID}`);
-    if (ordStats && ordStats[0]) {
-      realOrderCount = ordStats[0].total_orders;
-      realTotalSales = ordStats[0].total_sales || 0;
-      realPendingOrders = ordStats[0].pending || 0;
-    }
+  if (sql && !sqlFailed) {
+    try { const c = await safeDWHQuery(`SELECT COUNT(*) as cnt FROM prt.tblBusinessPartnerArc WHERE intBusinessUnitId=${BU_ID} AND isActive=1 AND strPartnerSalesType='Customer'`, 3000); if (c && c[0]) realCustomerCount = c[0].cnt; } catch(e) {}
+    try { const o = await safeDWHQuery(`SELECT COUNT(*) as total_orders, SUM(numTotalOrderValue) as total_sales, SUM(CASE WHEN isCompleted=0 THEN 1 ELSE 0 END) as pending FROM oms.tblSalesOrderHeaderArc WHERE intBusinessUnitId=${BU_ID}`, 3000); if (o && o[0]) { realOrderCount = o[0].total_orders; realTotalSales = o[0].total_sales || 0; realPendingOrders = o[0].pending || 0; } } catch(e) {}
     openLeads = realPendingOrders;
-    const pipelineSum = await runDWHQuery(`SELECT SUM(numTotalOrderValue) as total FROM oms.tblSalesOrderHeaderArc WHERE intBusinessUnitId=${BU_ID} AND isCompleted=0 AND isApproved=1 AND isRejected=0`);
-    if (pipelineSum && pipelineSum[0]) pipelineValue = pipelineSum[0].total || 0;
-  } catch(e) {}
+    try { const p = await safeDWHQuery(`SELECT SUM(numTotalOrderValue) as total FROM oms.tblSalesOrderHeaderArc WHERE intBusinessUnitId=${BU_ID} AND isCompleted=0 AND isApproved=1 AND isRejected=0`, 3000); if (p && p[0]) pipelineValue = p[0].total || 0; } catch(e) {}
+  }
 
   res.json({
     kpi: { totalCustomers: realCustomerCount, newThisMonth, openLeads, pipelineValue, pendingOrders: realPendingOrders, totalOrders: realOrderCount, totalSales: realTotalSales, openComplaints: complaints.filter(c => c.status === 'open').length, totalVisits: visits.length },
