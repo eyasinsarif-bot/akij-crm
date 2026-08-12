@@ -303,7 +303,7 @@ async function computeDashboardData() {
   ];
 
   var spPerformance = ntlTeam.map(function (sp) {
-    var spCusts = state._realEmployees && state._realCustomers ? state._realCustomers.filter(function (c) { return c.salesperson === sp.name; }).length : customers.filter(function (c) { return c.salesperson === sp.name; }).length;
+    var spCusts = customers.filter(function (c) { return c.salesperson === sp.name; }).length;
     var spVisits = visits.filter(function (v) { return v.salesperson === sp.name; }).length;
     var spOrders = orders.filter(function (o) { return o.salesperson === sp.name; });
     var spAchieved = spOrders.filter(function (o) { return o.status === 'delivered'; }).reduce(function (s, o) { return s + (o.total || 0); }, 0);
