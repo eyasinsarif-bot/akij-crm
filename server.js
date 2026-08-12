@@ -51,8 +51,9 @@ app.use(express.json({ limit: '10mb' }));
 app.use(express.static(path.join(__dirname, 'public')));
 if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
 
-// SQL Server pool (with fast fail)
-let sqlFailed = false;
+// SQL Server pool (skip on Render - can't reach internal DB)
+const isRender = process.env.RENDER === 'true' || process.env.RENDER_EXTERNAL_URL;
+let sqlFailed = isRender;
 let pool = null;
 async function getPool() {
   if (!sql || sqlFailed) throw new Error('SQL not available');
@@ -320,12 +321,11 @@ app.get('/api/dashboard/stats', authRequired, async (req, res) => {
     return { name: sp.name, username: sp.username, role: sp.role, territory: sp.territory, customers: spCusts, visits: spVisits, targetSales, achievedSales: spAchieved, pct, aiSuggestion: ai };
   }).sort((a, b) => (b.pct || -1) - (a.pct || -1));
 
-  // Real financial data from SQL Server (quick timeout)
+  // Real financial data from SQL Server (only if locally available)
   let financial = null;
-  try {
-    const f = await safeQuery(`SELECT SUM(CASE WHEN numAmount < 0 THEN ABS(numAmount) ELSE 0 END) as totalRevenue, SUM(CASE WHEN strFSComponentName = 'Cost Of Goods Sold' THEN numAmount ELSE 0 END) as cogs, SUM(numAmount) as netIncome, COUNT(*) as totalTx FROM [dbo].[tblISTransaction] WHERE intBusinessUnitId = ${BU_ID}`, 3000);
-    if (f && f[0]) financial = f[0];
-  } catch (e) {}
+  if (!sqlFailed && sql) {
+    try { const f = await safeQuery(`SELECT SUM(CASE WHEN numAmount < 0 THEN ABS(numAmount) ELSE 0 END) as totalRevenue, SUM(CASE WHEN strFSComponentName = 'Cost Of Goods Sold' THEN numAmount ELSE 0 END) as cogs, SUM(numAmount) as netIncome, COUNT(*) as totalTx FROM [dbo].[tblISTransaction] WHERE intBusinessUnitId = ${BU_ID}`, 2000); if (f && f[0]) financial = f[0]; } catch(e) {}
+  }
 
   let realCustomerCount = customers.length;
   let realOrderCount = orders.length;
