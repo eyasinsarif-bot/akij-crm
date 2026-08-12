@@ -99,11 +99,11 @@ async function renderEntityView(ent, title) {
   var c = document.getElementById("content-area");
   var hb = document.getElementById("header-action-btn");
   hb.style.display = "inline-flex"; hb.textContent = "+ Add " + title.slice(0,-1); hb.onclick = function(){ showEntityForm(ent, null); };
-  if (ent === "customers") { try { var cd = await apiGet("/api/customers/dwh"); if (cd && cd.length > 0) state.customers = cd; } catch(e) { console.log("DWH error, using cached:",e.message); } }
-  else if (ent === "leads") { try { var ld = await apiGet("/api/leads/dwh"); if (ld && ld.length > 0) state.leads = ld; } catch(e) { console.log("DWH error:",e.message); } }
-  else if (ent === "orders") { try { var od = await apiGet("/api/orders/dwh"); if (od && od.length > 0) state.orders = od; } catch(e) { console.log("DWH error:",e.message); } }
-  else if (ent === "opportunities") { try { var op = await apiGet("/api/opportunities/dwh"); if (op && op.length > 0) state.opportunities = op; } catch(e) { console.log("DWH error:",e.message); } }
-  else if (ent === "complaints") { try { var cp = await apiGet("/api/complaints/dwh"); if (cp && cp.length > 0) state.complaints = cp; } catch(e) { console.log("DWH error:",e.message); } }
+  if (ent === "customers") { try { var cd = await apiGet("/api/customers/dwh"); if (cd && cd.length > 0) state.customers = cd; else { await reloadEntity(ent); } } catch(e) { await reloadEntity(ent); } }
+  else if (ent === "leads") { try { var ld = await apiGet("/api/leads/dwh"); if (ld && ld.length > 0) state.leads = ld; else { await reloadEntity(ent); } } catch(e) { await reloadEntity(ent); } }
+  else if (ent === "orders") { try { var od = await apiGet("/api/orders/dwh"); if (od && od.length > 0) state.orders = od; else { await reloadEntity(ent); } } catch(e) { await reloadEntity(ent); } }
+  else if (ent === "opportunities") { try { var op = await apiGet("/api/opportunities/dwh"); if (op && op.length > 0) state.opportunities = op; else { await reloadEntity(ent); } } catch(e) { await reloadEntity(ent); } }
+  else if (ent === "complaints") { try { var cp = await apiGet("/api/complaints/dwh"); if (cp && cp.length > 0) state.complaints = cp; else { await reloadEntity(ent); } } catch(e) { await reloadEntity(ent); } }
   else if (!state[ent] || state[ent].length === 0) { try { await reloadEntity(ent); } catch(e) {} }
   var data = state[ent] || [];
   var h = '<div class="table-section"><div class="table-section-header"><h3>'+title+' ('+data.length+')</h3><div class="toolbar"><input type="text" class="search-box" placeholder="Search..." oninput="filterTable(\''+ent+'-table\',this.value)"><button class="btn btn-primary btn-sm" onclick="showEntityForm(\''+ent+'\',null)">+ Add</button></div></div>';
@@ -361,7 +361,7 @@ async function showApp() {
   renderPage();
   setTimeout(async function(){
     try { state.accounts = await apiGet("/api/accounts"); } catch(e) {}
-    try { var cd = await apiGet("/api/customers/dwh"); if (cd && cd.length > 0) state.customers = cd; } catch(e) {}
+    try { var cd = await apiGet("/api/customers/dwh"); if (cd && cd.length > 0) state.customers = cd; else state.customers = await apiGet("/api/customers"); } catch(e) { try { state.customers = await apiGet("/api/customers"); } catch(e2) {} }
   }, 500);
 }
 
