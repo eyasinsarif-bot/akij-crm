@@ -302,16 +302,32 @@ async function computeDashboardData() {
     { name: 'Md Shoib Reza Rajib', role: 'Assistant Manager', territory: 'Operations' }
   ];
 
+  // Pull live team + sales data from DWH if available
+  if (sql && !dwhFailed && !isRender) {
+    try {
+      var empRes = await safeDWHQuery("SELECT e.strEmployeeName as name, d.strDesignation as designation, (SELECT COUNT(*) FROM saas.empEmployeeBasicInfoArc sub WHERE sub.intSupervisorId = e.intEmployeeBasicInfoId AND sub.isActive=1) as team_size FROM saas.empEmployeeBasicInfoArc e JOIN saas.masterDesignationArc d ON e.intDesignationId = d.intDesignationId WHERE e.intBusinessUnitId=" + BU_ID + " AND e.isActive=1 AND d.strDesignation IN ('Chief Business Officer','Senior Manager','Deputy Manager','Assistant Manager') AND e.strEmployeeName IN ('Kazi Sibbir Ahammad','Shek Jasim Uddin','MD Eynul  Hoque','Md Shoib Reza Rajib') ORDER BY CASE d.strDesignation WHEN 'Chief Business Officer' THEN 1 WHEN 'Senior Manager' THEN 2 WHEN 'Deputy Manager' THEN 3 WHEN 'Assistant Manager' THEN 4 END", 3000);
+      var salesRes = await safeDWHQuery("SELECT COUNT(*) as order_count, SUM(numTotalOrderValue) as total_value FROM oms.tblSalesOrderHeaderArc WHERE intBusinessUnitId=" + BU_ID, 3000);
+      if (empRes && empRes.length > 0) {
+        var totalSalesVal = (salesRes && salesRes[0]) ? (salesRes[0].total_value || 0) : 0;
+        var totalOrders = (salesRes && salesRes[0]) ? (salesRes[0].order_count || 0) : 0;
+        ntlTeam = empRes.map(function (e) {
+          return { name: e.name, role: e.designation, territory: 'Nobayon Traders Ltd.', customers: e.team_size || 0, visits: 0, targetSales: 0, achievedSales: 0, pct: null, aiSuggestion: 'Team of ' + (e.team_size || 0) + ' members' };
+        });
+      }
+    } catch (e) {}
+  }
+
   var spPerformance = ntlTeam.map(function (sp) {
-    var spCusts = customers.filter(function (c) { return c.salesperson === sp.name; }).length;
-    var spVisits = visits.filter(function (v) { return v.salesperson === sp.name; }).length;
+    var spCusts = (sp.customers !== undefined) ? sp.customers : customers.filter(function (c) { return c.salesperson === sp.name; }).length;
+    var spVisits = (sp.visits !== undefined && sp.visits !== 0) ? sp.visits : visits.filter(function (v) { return v.salesperson === sp.name; }).length;
     var spOrders = orders.filter(function (o) { return o.salesperson === sp.name; });
     var spAchieved = spOrders.filter(function (o) { return o.status === 'delivered'; }).reduce(function (s, o) { return s + (o.total || 0); }, 0);
     var target = targets.find(function (t) { return t.salesperson === sp.name && t.month === monthKey; });
     var targetSales = target ? target.targetSales : 0;
     var pct = targetSales > 0 ? Math.round((spAchieved / targetSales) * 100) : null;
-    var ai = 'No target set.';
-    if (pct !== null) {
+    var ai = sp.aiSuggestion || 'No target set.';
+    if (sp.aiSuggestion) { ai = sp.aiSuggestion; }
+    else if (pct !== null) {
       if (pct >= 110) ai = 'Territory expansion recommended.';
       else if (pct >= 90) ai = 'Sustain + upsell to existing customers.';
       else if (pct >= 70) ai = 'Prioritize lead follow-ups and conversions.';
