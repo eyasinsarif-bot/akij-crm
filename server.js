@@ -12,6 +12,8 @@ const GSHEETS_URL = 'https://docs.google.com/spreadsheets/d/1k3YNf8tCu3DyFpBZOFW
 let salesCache = null;
 let salesCacheTime = 0;
 const SALES_CACHE_MS = 10 * 60 * 1000;
+let soSalesmanMap = null;
+let soSalesmanMapTime = 0;
 
 function parseCSV(text) {
   const rows = [];
@@ -107,6 +109,31 @@ async function getSalesPerformance() {
   } catch (e) {
     console.log('Google Sheets fetch failed:', e.message);
     return salesCache || [];
+  }
+}
+
+// Get SO Number -> Salesman mapping from Google Sheets
+async function getSoSalesmanMap() {
+  if (soSalesmanMap && (Date.now() - soSalesmanMapTime) < SALES_CACHE_MS) return soSalesmanMap;
+  try {
+    const csv = await fetchGoogleSheet();
+    const rows = parseCSV(csv);
+    const map = {};
+    for (let i = 1; i < rows.length; i++) {
+      const r = rows[i];
+      if (!r || r.length < 23) continue;
+      const soNumber = (r[2] || '').trim();
+      const rawSalesman = r[21] || '';
+      let name = rawSalesman.replace(/^\d+\s*/, '').trim();
+      if (!soNumber || !name) continue;
+      if (!map[soNumber]) map[soNumber] = name;
+    }
+    soSalesmanMap = map;
+    soSalesmanMapTime = Date.now();
+    return map;
+  } catch (e) {
+    console.log('SO map fetch failed:', e.message);
+    return soSalesmanMap || {};
   }
 }
 
@@ -549,12 +576,15 @@ if (sql) {
   app.get('/api/orders/dwh', authRequired, async function (req, res) {
     if (!dwhAvailable()) return res.status(503).json({ error: 'DWH not available' });
     try {
+      var soMap = await getSoSalesmanMap();
       var raw = await runDWHQuery("SELECT TOP 500 h.strSalesOrderCode as order_code, h.dteSalesOrderDate as order_date, h.strSoldToPartnerName as customer, h.strSoldToPartnerAddress as address, h.numTotalOrderValue as total, h.numNetOrderValue as net_value, h.isCompleted, h.isApproved, h.strPaymentTermsName as payment_terms, h.strSalesOfficeName as sales_office, h.strSalesOrganizationName as sales_org, h.strShippointName as ship_point, h.dteDueShippingDate as due_date, r.strItemName as product, r.numOrderQuantity as quantity, r.numItemPrice as unit_price, r.strUOM as uom FROM oms.tblSalesOrderHeaderArc h LEFT JOIN oms.tblSalesOrderRowArc r ON h.intSalesOrderId = r.intSalesOrderId AND r.intSequenceNo = 1 WHERE h.intBusinessUnitId = " + BU_ID + " ORDER BY h.dteSalesOrderDate DESC");
       var mapped = raw.map(function (r, i) {
+        var soNum = (r.order_code || '').trim();
+        var salesperson = soMap[soNum] || r.sales_office || '';
         return {
           id: 'SO-' + String(i + 1).padStart(5, '0'),
           customer: r.customer || 'Unknown',
-          salesperson: r.sales_office || '',
+          salesperson: salesperson,
           product: r.product || '',
           quantity: r.quantity || 0,
           unit_price: r.unit_price || 0,
