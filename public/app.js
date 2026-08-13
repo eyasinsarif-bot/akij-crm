@@ -172,11 +172,13 @@ async function renderDashboard() {
     h += '</div>';
   }
 
-  h += '<div class="table-section"><div class="table-section-header"><h3>Salesperson Performance</h3><span style="font-size:12px;color:var(--gray-400)">Aug 2026</span></div>';
-  h += '<div style="overflow-x:auto"><table><thead><tr><th>Name</th><th>Territory</th><th>Customers</th><th>Visits</th><th>Target (Tk)</th><th>Achieved (Tk)</th><th>%</th><th>AI Suggestion</th></tr></thead><tbody>';
+  h += '<div class="table-section"><div class="table-section-header"><h3>Salesperson Performance</h3><span style="font-size:12px;color:var(--gray-400)">Google Sheets Live Data</span></div>';
+  h += '<div style="overflow-x:auto"><table><thead><tr><th>Name</th><th>Designation</th><th>Orders</th><th>Qty (Ton)</th><th>Sales (Cr)</th><th>Profit (Cr)</th><th>Status</th></tr></thead><tbody>';
   sp.forEach(function(s){
-    var pctB = s.pct===null?'<span class="badge badge-gray">N/A</span>':s.pct>=100?'<span class="badge badge-green">'+s.pct+'%</span>':s.pct>=70?'<span class="badge badge-amber">'+s.pct+'%</span>':'<span class="badge badge-red">'+s.pct+'%</span>';
-    h += '<tr class="clickable" onclick="navigate(\'customers\')"><td><strong>'+s.name+'</strong><br><span style="font-size:11px;color:var(--gray-400)">'+s.role+'</span></td><td>'+s.territory+'</td><td>'+s.customers+'</td><td>'+s.visits+'</td><td>Tk '+s.targetSales.toLocaleString()+'</td><td>Tk '+s.achievedSales.toLocaleString()+'</td><td>'+pctB+'</td><td><div class="ai-suggestion">'+s.aiSuggestion+'</div></td></tr>';
+    var profitCls = (s.profit !== undefined && s.profit < 0) ? 'var(--red)' : 'var(--green)';
+    var profitVal = s.profit !== undefined ? (s.profit/10000000).toFixed(2)+' Cr' : '-';
+    var badge = s.profit !== undefined ? (s.profit < 0 ? '<span class="badge badge-red">Loss</span>' : '<span class="badge badge-green">Profit</span>') : '<span class="badge badge-gray">N/A</span>';
+    h += '<tr><td><strong>'+s.name+'</strong></td><td><span class="badge badge-blue">'+s.role+'</span></td><td>'+s.customers+'</td><td>'+s.visits+'</td><td>'+(s.achievedSales/10000000).toFixed(2)+' Cr</td><td style="color:'+profitCls+';font-weight:600">'+profitVal+'</td><td>'+badge+'</td></tr>';
   });
   h += '</tbody></table></div></div>';
   c.innerHTML = h;

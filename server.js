@@ -2,9 +2,113 @@
 const crypto = require('crypto');
 const fs = require('fs');
 const path = require('path');
+const https = require('https');
 
 let sql = null;
 try { sql = require('mssql'); } catch (e) { console.log('mssql not available:', e.message); }
+
+// Google Sheets sales data URL
+const GSHEETS_URL = 'https://docs.google.com/spreadsheets/d/1k3YNf8tCu3DyFpBZOFWjvByEpFYQVkf5/export?format=csv';
+let salesCache = null;
+let salesCacheTime = 0;
+const SALES_CACHE_MS = 10 * 60 * 1000;
+
+function parseCSV(text) {
+  const rows = [];
+  let row = [], field = '', inQuotes = false;
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+    if (inQuotes) {
+      if (c === '"') { if (text[i + 1] === '"') { field += '"'; i++; } else inQuotes = false; }
+      else field += c;
+    } else {
+      if (c === '"') inQuotes = true;
+      else if (c === ',') { row.push(field); field = ''; }
+      else if (c === '\n') { row.push(field); rows.push(row); row = []; field = ''; }
+      else if (c === '\r') {}
+      else field += c;
+    }
+  }
+  if (field || row.length) { row.push(field); rows.push(row); }
+  return rows;
+}
+
+function fetchGoogleSheet() {
+  return new Promise((resolve, reject) => {
+    const request = (url, redirects) => {
+      https.get(url, (res) => {
+        if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location && redirects < 5) {
+          request(res.headers.location, redirects + 1);
+          return;
+        }
+        let data = '';
+        res.on('data', (chunk) => data += chunk);
+        res.on('end', () => resolve(data));
+        res.on('error', reject);
+      }).on('error', reject);
+    };
+    request(GSHEETS_URL, 0);
+  });
+}
+
+const SALESMAN_DESIGNATIONS = {
+  'Kazi Shibbir Ahamed': 'Chief Business Officer',
+  'Kazi Shibbir Ahammad': 'Chief Business Officer',
+  'Kazi Sibbir Ahammad': 'Chief Business Officer',
+  'Shek Jasim Uddin': 'Senior Manager',
+  'K.M Atiqul Islam': 'Deputy Manager',
+  'K M Atiqul Islam': 'Deputy Manager',
+  'Md Shoib Reza Rajib': 'Assistant Manager',
+  'MD Eynul  Hoque': 'Deputy Manager',
+  'MD Eynul Hoque': 'Deputy Manager',
+  'Yeasin Ali Ridoy': 'Senior Officer'
+};
+
+async function getSalesPerformance() {
+  if (salesCache && (Date.now() - salesCacheTime) < SALES_CACHE_MS) return salesCache;
+  try {
+    const csv = await fetchGoogleSheet();
+    const rows = parseCSV(csv);
+    const salesmen = {};
+    for (let i = 1; i < rows.length; i++) {
+      const r = rows[i];
+      if (!r || r.length < 23) continue;
+      const salesValue = parseFloat(r[17]) || 0;
+      const costValue = parseFloat(r[19]) || 0;
+      const profit = parseFloat(r[20]) || 0;
+      const rawSalesman = r[21] || '';
+      const district = r[22] || '';
+      const qty = parseFloat(r[8]) || 0;
+      let name = rawSalesman.replace(/^\d+\s*/, '').trim();
+      if (!name) continue;
+      if (!salesmen[name]) salesmen[name] = { name, count: 0, salesValue: 0, costValue: 0, profit: 0, qty: 0, districts: new Set() };
+      salesmen[name].count++;
+      salesmen[name].salesValue += salesValue;
+      salesmen[name].costValue += costValue;
+      salesmen[name].profit += profit;
+      salesmen[name].qty += qty;
+      if (district) salesmen[name].districts.add(district);
+    }
+    const result = Object.values(salesmen)
+      .sort((a, b) => b.salesValue - a.salesValue)
+      .map(s => ({
+        name: s.name,
+        designation: SALESMAN_DESIGNATIONS[s.name] || 'Sales Officer',
+        orders: s.count,
+        qty: s.qty,
+        salesValue: s.salesValue,
+        costValue: s.costValue,
+        profit: s.profit,
+        districts: [...s.districts]
+      }));
+    salesCache = result;
+    salesCacheTime = Date.now();
+    return result;
+  } catch (e) {
+    console.log('Google Sheets fetch failed:', e.message);
+    return salesCache || [];
+  }
+}
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -295,47 +399,44 @@ async function computeDashboardData() {
     if (pRes && pRes[0]) realPipelineValue = pRes[0].total || 0;
   }
 
-  var ntlTeam = [
-    { name: 'Kazi Sibbir Ahammad', role: 'Chief Business Officer', territory: 'Nobayon Traders Ltd.' },
-    { name: 'Shek Jasim Uddin', role: 'Senior Manager', territory: 'Trading Sales' },
-    { name: 'MD Eynul  Hoque', role: 'Deputy Manager', territory: 'Operations' },
-    { name: 'Md Shoib Reza Rajib', role: 'Assistant Manager', territory: 'Operations' }
-  ];
+  // Pull real sales performance from Google Sheets
+  var salesPerf = await getSalesPerformance();
+  var designationOrder = { 'Chief Business Officer': 1, 'Senior Manager': 2, 'Deputy Manager': 3, 'Assistant Manager': 4, 'Senior Officer': 5, 'Sales Officer': 6 };
 
-  // Pull live team + sales data from DWH if available
-  if (sql && !dwhFailed && !isRender) {
-    try {
-      var empRes = await safeDWHQuery("SELECT e.strEmployeeName as name, d.strDesignation as designation, (SELECT COUNT(*) FROM saas.empEmployeeBasicInfoArc sub WHERE sub.intSupervisorId = e.intEmployeeBasicInfoId AND sub.isActive=1) as team_size FROM saas.empEmployeeBasicInfoArc e JOIN saas.masterDesignationArc d ON e.intDesignationId = d.intDesignationId WHERE e.intBusinessUnitId=" + BU_ID + " AND e.isActive=1 AND d.strDesignation IN ('Chief Business Officer','Senior Manager','Deputy Manager','Assistant Manager') AND e.strEmployeeName IN ('Kazi Sibbir Ahammad','Shek Jasim Uddin','MD Eynul  Hoque','Md Shoib Reza Rajib') ORDER BY CASE d.strDesignation WHEN 'Chief Business Officer' THEN 1 WHEN 'Senior Manager' THEN 2 WHEN 'Deputy Manager' THEN 3 WHEN 'Assistant Manager' THEN 4 END", 3000);
-      var salesRes = await safeDWHQuery("SELECT COUNT(*) as order_count, SUM(numTotalOrderValue) as total_value FROM oms.tblSalesOrderHeaderArc WHERE intBusinessUnitId=" + BU_ID, 3000);
-      if (empRes && empRes.length > 0) {
-        var totalSalesVal = (salesRes && salesRes[0]) ? (salesRes[0].total_value || 0) : 0;
-        var totalOrders = (salesRes && salesRes[0]) ? (salesRes[0].order_count || 0) : 0;
-        ntlTeam = empRes.map(function (e) {
-          return { name: e.name, role: e.designation, territory: 'Nobayon Traders Ltd.', customers: e.team_size || 0, visits: 0, targetSales: 0, achievedSales: 0, pct: null, aiSuggestion: 'Team of ' + (e.team_size || 0) + ' members' };
-        });
-      }
-    } catch (e) {}
-  }
-
-  var spPerformance = ntlTeam.map(function (sp) {
-    var spCusts = (sp.customers !== undefined) ? sp.customers : customers.filter(function (c) { return c.salesperson === sp.name; }).length;
-    var spVisits = (sp.visits !== undefined && sp.visits !== 0) ? sp.visits : visits.filter(function (v) { return v.salesperson === sp.name; }).length;
-    var spOrders = orders.filter(function (o) { return o.salesperson === sp.name; });
-    var spAchieved = spOrders.filter(function (o) { return o.status === 'delivered'; }).reduce(function (s, o) { return s + (o.total || 0); }, 0);
-    var target = targets.find(function (t) { return t.salesperson === sp.name && t.month === monthKey; });
-    var targetSales = target ? target.targetSales : 0;
-    var pct = targetSales > 0 ? Math.round((spAchieved / targetSales) * 100) : null;
-    var ai = sp.aiSuggestion || 'No target set.';
-    if (sp.aiSuggestion) { ai = sp.aiSuggestion; }
-    else if (pct !== null) {
-      if (pct >= 110) ai = 'Territory expansion recommended.';
-      else if (pct >= 90) ai = 'Sustain + upsell to existing customers.';
-      else if (pct >= 70) ai = 'Prioritize lead follow-ups and conversions.';
-      else if (pct >= 50) ai = 'Increase visits and re-engage dormant accounts.';
-      else ai = 'Coaching session recommended.';
-    }
-    return { name: sp.name, username: sp.name, role: sp.role, territory: sp.territory, customers: spCusts, visits: spVisits, targetSales: targetSales, achievedSales: spAchieved, pct: pct, aiSuggestion: ai };
+  var spPerformance = salesPerf.map(function (s) {
+    var pct = null;
+    var ai = '';
+    if (s.profit >= 0) ai = 'Profitable: +' + (s.profit / 10000000).toFixed(2) + ' Cr';
+    else ai = 'Loss: ' + (s.profit / 10000000).toFixed(2) + ' Cr';
+    return {
+      name: s.name,
+      username: s.name,
+      role: s.designation,
+      territory: s.districts ? s.districts[0] : 'Nobayon Traders Ltd.',
+      customers: s.orders,
+      visits: Math.round(s.qty * 100) / 100,
+      targetSales: 0,
+      achievedSales: s.salesValue,
+      profit: s.profit,
+      costValue: s.costValue,
+      pct: pct,
+      aiSuggestion: ai
+    };
+  }).sort(function (a, b) {
+    return (designationOrder[a.role] || 99) - (designationOrder[b.role] || 99);
   });
+
+  if (spPerformance.length === 0) {
+    var ntlTeam = [
+      { name: 'Kazi Sibbir Ahammad', role: 'Chief Business Officer', territory: 'Nobayon Traders Ltd.' },
+      { name: 'Shek Jasim Uddin', role: 'Senior Manager', territory: 'Trading Sales' },
+      { name: 'MD Eynul  Hoque', role: 'Deputy Manager', territory: 'Operations' },
+      { name: 'Md Shoib Reza Rajib', role: 'Assistant Manager', territory: 'Operations' }
+    ];
+    spPerformance = ntlTeam.map(function (sp) {
+      return { name: sp.name, username: sp.name, role: sp.role, territory: sp.territory, customers: 0, visits: 0, targetSales: 0, achievedSales: 0, pct: null, aiSuggestion: 'No data' };
+    });
+  }
 
   var financial = null;
   if (sql && !sqlFailed && !isRender) {

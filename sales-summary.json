@@ -1,0 +1,99 @@
+[
+  {
+    "name": "Shek Jasim Uddin",
+    "count": 3242,
+    "qty": 27765.80129799994,
+    "salesValue": 2447260243.493699,
+    "costValue": 2477925110.3617506,
+    "profit": -30664866.868183997,
+    "districts": [
+      "Narayanganj",
+      "Sirajganj",
+      "Jamalpur",
+      "Chuadanga",
+      "Lalmonirhat",
+      "Chittagong",
+      "Bogra",
+      "Natore",
+      "Central"
+    ]
+  },
+  {
+    "name": "Kazi Shibbir Ahamed",
+    "count": 4135,
+    "qty": 21652.55976500003,
+    "salesValue": 2944187385.5475,
+    "costValue": 2788248110.9855022,
+    "profit": 155939274.55400005,
+    "districts": [
+      "Narayanganj",
+      "Jamalpur",
+      "Chuadanga",
+      "Natore",
+      "Sirajganj",
+      "Bogra",
+      "Lalmonirhat",
+      "Chittagong",
+      "Central",
+      "Dinajpur"
+    ]
+  },
+  {
+    "name": "Yeasin Ali Ridoy",
+    "count": 107,
+    "qty": 102.38274000000003,
+    "salesValue": 133267666.30830006,
+    "costValue": 130591545.76484,
+    "profit": 2676120.54391,
+    "districts": [
+      "Sirajganj",
+      "Bogra",
+      "Jamalpur"
+    ]
+  },
+  {
+    "name": "K.M Atiqul Islam",
+    "count": 1078,
+    "qty": 1841.9434050000002,
+    "salesValue": 974494979.9638007,
+    "costValue": 954500895.648651,
+    "profit": 19994084.309100024,
+    "districts": [
+      "Lalmonirhat",
+      "Narayanganj",
+      "Sirajganj",
+      "Bogra",
+      "Chuadanga",
+      "Central",
+      "Jamalpur",
+      "Pabna",
+      "Kurigram",
+      "Natore"
+    ]
+  },
+  {
+    "name": "Md Shoib Reza Rajib",
+    "count": 484,
+    "qty": 1530.6002869999995,
+    "salesValue": 269503536.985,
+    "costValue": 263990637.46749988,
+    "profit": 5512899.5174999945,
+    "districts": [
+      "Narayanganj",
+      "Chuadanga",
+      "Sirajganj",
+      "Central"
+    ]
+  },
+  {
+    "name": "MD Eynul Hoque",
+    "count": 15,
+    "qty": 60.58,
+    "salesValue": 15711250.100000001,
+    "costValue": 14558585.599800002,
+    "profit": 1152664.4999999998,
+    "districts": [
+      "Natore"
+    ]
+  }
+]
