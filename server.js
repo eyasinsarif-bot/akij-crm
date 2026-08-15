@@ -120,7 +120,8 @@ async function fetchProspectLeads() {
           email: r[6] || '',
           source: 'Feed Industry Prospect',
           status: 'new',
-          salesperson: '',
+          salesperson: 'Trading Sales',
+          supervisor: 'Kazi Sibbir Ahammad (CBO)',
           notes: (r[3] || '') + (r[4] ? ' (' + r[4] + ')' : '') + ' | Brand: ' + (r[2] || '') + ' | ' + (r[7] || ''),
           value: 0
         });
@@ -618,32 +619,13 @@ if (sql) {
   });
 
   app.get('/api/leads/dwh', authRequired, async function (req, res) {
-    if (!dwhAvailable()) return res.status(503).json({ error: 'DWH not available' });
     try {
-      var raw = await runDWHQuery("SELECT h.strSalesOrderCode, h.dteSalesOrderDate, h.strSoldToPartnerName as customer, h.strSoldToPartnerAddress, h.numTotalOrderValue as value, h.isCompleted, h.isApproved, h.isRejected, h.strPaymentTermsName, h.strSalesOfficeName, h.strSalesOrganizationName, p.strContactNumber as phone, p.strEmail as email, p.strDistrictName FROM oms.tblSalesOrderHeaderArc h LEFT JOIN prt.tblBusinessPartnerArc p ON h.strSoldToPartnerName = p.strBusinessPartnerName AND p.intBusinessUnitId=h.intBusinessUnitId WHERE h.intBusinessUnitId=" + BU_ID + " AND h.isCompleted=0 ORDER BY h.dteSalesOrderDate DESC");
-      var mapped = raw.map(function (r, i) {
-        return {
-          id: 'L-' + String(i + 1).padStart(4, '0'),
-          name: r.customer || 'Unknown',
-          phone: r.phone || '',
-          email: r.email || '',
-          source: r.strDistrictName || '',
-          status: r.isRejected ? 'lost' : (r.isApproved ? 'qualified' : 'new'),
-          salesperson: r.strSalesOfficeName || '',
-          supervisor: 'Kazi Sibbir Ahammad (CBO)',
-          notes: (r.strPaymentTermsName || 'N/A') + ' | ' + r.strSalesOrderCode,
-          value: r.value || 0
-        };
+      var prospects = await fetchProspectLeads();
+      prospects.forEach(function(p){
+        p.salesperson = 'Trading Sales';
+        p.supervisor = 'Kazi Sibbir Ahammad (CBO)';
       });
-      // Merge prospect leads from Google Sheets (skip existing customers)
-      try {
-        var prospects = await fetchProspectLeads();
-        var existingLeadNames = new Set(mapped.map(function(l){ return l.name.toLowerCase(); }));
-        prospects.forEach(function(p){
-          if (!existingLeadNames.has(p.name.toLowerCase())) mapped.push(p);
-        });
-      } catch (e) {}
-      res.json(mapped);
+      res.json(prospects);
     } catch (e) { res.status(500).json({ error: e.message }); }
   });
 

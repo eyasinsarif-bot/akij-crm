@@ -2537,835 +2537,17 @@
   ],
   "leads": [
     {
-      "id": "L-0001",
-      "name": "Alal Poultry and Fish feed Limited",
-      "phone": "01777718876",
-      "email": "",
-      "source": "Bogura\r\n",
-      "status": "qualified",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO826666",
-      "value": 98601520.83,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0002",
-      "name": "S. A Agro Feeds Ltd",
-      "phone": "01322809894",
-      "email": "",
-      "source": "Dhaka",
-      "status": "qualified",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO826665",
-      "value": 4800000,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0003",
-      "name": "S. A Agro Feeds Ltd",
-      "phone": "01322809894",
-      "email": "",
-      "source": "Dhaka",
-      "status": "qualified",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO826664",
-      "value": 4800000,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0004",
-      "name": "Akij Agro Feed Ltd ( Unit 03)",
-      "phone": "01335144567",
-      "email": "",
-      "source": "Rangpur",
-      "status": "qualified",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO826661",
-      "value": 13400000,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0005",
-      "name": "Akij Agro Feed Ltd ( Unit 03)",
-      "phone": "01335144567",
-      "email": "",
-      "source": "Rangpur",
-      "status": "qualified",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO826662",
-      "value": 19260000,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0006",
-      "name": "Akij Agro Feed Ltd ( Unit 02)",
-      "phone": "01335144567",
-      "email": "",
-      "source": "Mymensingh",
-      "status": "qualified",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO826659",
-      "value": 10050000,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0007",
-      "name": "Akij Agro Feed Ltd ( Unit 02)",
-      "phone": "01335144567",
-      "email": "",
-      "source": "Mymensingh",
-      "status": "qualified",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO826660",
-      "value": 22470000,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0008",
-      "name": "Akij Agro Feed Ltd ( Unit 02)",
-      "phone": "01335144567",
-      "email": "",
-      "source": "Mymensingh",
-      "status": "qualified",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO826663",
-      "value": 6420000,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0009",
-      "name": "AGATA FEED MILLS LTD",
-      "phone": "01777739555",
-      "email": "",
-      "source": "Dhaka",
-      "status": "lost",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO826655",
-      "value": 10951200,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0010",
-      "name": "AGATA FEED MILLS LTD",
-      "phone": "01777739555",
-      "email": "",
-      "source": "Dhaka",
-      "status": "qualified",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO826656",
-      "value": 10951200,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0011",
-      "name": "Akij Agro Feed Ltd ( Unit 01)",
-      "phone": "01335144567",
-      "email": "",
-      "source": "Narayanganj",
-      "status": "qualified",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO826657",
-      "value": 77050000,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0012",
-      "name": "Akij Agro Feed Ltd ( Unit 01)",
-      "phone": "01335144567",
-      "email": "",
-      "source": "Narayanganj",
-      "status": "qualified",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO826658",
-      "value": 48150000,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0013",
-      "name": "Akij Agro Feed Ltd ( Unit 03)",
-      "phone": "01335144567",
-      "email": "",
-      "source": "Rangpur",
-      "status": "lost",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO726642",
-      "value": 5288000,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0014",
-      "name": "M/s A Zaman Traders",
-      "phone": "01727229092",
-      "email": "",
-      "source": "Pabna",
-      "status": "qualified",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO726629",
-      "value": 256303.72,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0015",
-      "name": "AGATA FEED MILLS LTD",
-      "phone": "01777739555",
-      "email": "",
-      "source": "Dhaka",
-      "status": "lost",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO726619",
-      "value": 1482000,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0016",
-      "name": "M/s Ifty Traders",
-      "phone": "01716726442",
-      "email": "",
-      "source": "Bogura\r\n",
-      "status": "qualified",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO626596",
-      "value": 1700140,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0017",
-      "name": "M/s Ifty Traders",
-      "phone": "01716-726442",
-      "email": "",
-      "source": "Bogura\r\n",
-      "status": "qualified",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO626596",
-      "value": 1700140,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0018",
-      "name": "Chhuya Agro Products Ltd",
-      "phone": "01912102785",
-      "email": "chhuyaagro@gmail.com",
-      "source": "Gazipur",
-      "status": "lost",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO526574",
-      "value": 616807.1,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0019",
-      "name": "Akij Agro Feed Ltd ( Unit 01)",
-      "phone": "01335144567",
-      "email": "",
-      "source": "Narayanganj",
-      "status": "lost",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO526562",
-      "value": 12003000,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0020",
-      "name": "Akij Agro Feed Ltd ( Unit 01)",
-      "phone": "01335144567",
-      "email": "",
-      "source": "Narayanganj",
-      "status": "lost",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO526563",
-      "value": 12003000,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0021",
-      "name": "AGATA FEED MILLS LTD",
-      "phone": "01777739555",
-      "email": "",
-      "source": "Dhaka",
-      "status": "qualified",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO526554",
-      "value": 227000.25,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0022",
-      "name": "M/s Ifty Traders",
-      "phone": "01716726442",
-      "email": "",
-      "source": "Bogura\r\n",
-      "status": "lost",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO426532",
-      "value": 20.145,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0023",
-      "name": "M/s Ifty Traders",
-      "phone": "01716-726442",
-      "email": "",
-      "source": "Bogura\r\n",
-      "status": "lost",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO426532",
-      "value": 20.145,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0024",
-      "name": "Molla And Sons",
-      "phone": "01719664191",
-      "email": "",
-      "source": "Pabna",
-      "status": "qualified",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO426529",
-      "value": 289643.25,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0025",
-      "name": "Molla And Sons",
-      "phone": "01719664191",
-      "email": "",
-      "source": "Pabna",
-      "status": "qualified",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO426529",
-      "value": 289643.25,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0026",
-      "name": "Abir Agro Business",
-      "phone": "01719468597",
-      "email": "",
-      "source": "Dinajpur",
-      "status": "lost",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO426515",
-      "value": 1699998.8725,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0027",
-      "name": "Shadin Traders",
-      "phone": "01327269307",
-      "email": "",
-      "source": "Lalmonirhat",
-      "status": "qualified",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO426510",
-      "value": 62006.5,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0028",
-      "name": "M/s Tayeba Traders",
-      "phone": "01782493949",
-      "email": "",
-      "source": "Sirajganj",
-      "status": "lost",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO426500",
-      "value": 11730325,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0029",
-      "name": "M/s Sabuj Traders",
-      "phone": "01743512113",
-      "email": "",
-      "source": "Narayanganj",
-      "status": "lost",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO426470",
-      "value": 678.3564,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0030",
-      "name": "M/s Bhai Bhai Traders",
-      "phone": "01923209207",
-      "email": "",
-      "source": "Lalmonirhat",
-      "status": "qualified",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO326453",
-      "value": 785199.15,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0031",
-      "name": "Nobayon Traders Ltd. (FOC)",
-      "phone": "01704094705",
-      "email": "",
-      "source": "Dhaka",
-      "status": "qualified",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO326437",
-      "value": 42.5,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0032",
-      "name": "M/s Jalal Trading",
-      "phone": "01818438249",
-      "email": "",
-      "source": "Chattogram",
-      "status": "qualified",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO226325",
-      "value": 904500,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0033",
-      "name": "S H Texmart",
-      "phone": "01712347555",
-      "email": "",
-      "source": "Narsingdi",
-      "status": "qualified",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO226319",
-      "value": 33750,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0034",
-      "name": "R S K Trading",
-      "phone": "01775966149",
-      "email": "",
-      "source": "Dhaka",
-      "status": "lost",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO226264",
-      "value": 200000,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0035",
-      "name": "M/s Jalal Trading",
-      "phone": "01818438249",
-      "email": "",
-      "source": "Chattogram",
-      "status": "lost",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO126209",
-      "value": 482400,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0036",
-      "name": "M/s Nizam Enterprise",
-      "phone": "01711521468",
-      "email": "",
-      "source": "Narayanganj",
-      "status": "lost",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO126178",
-      "value": 376800,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0037",
-      "name": "Kazi Agrovet",
-      "phone": "01911179297",
-      "email": "kaziagrovet@gmail.com",
-      "source": "Dhaka",
-      "status": "qualified",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO126163",
-      "value": 55929,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0038",
-      "name": "Kazi Agrovet",
-      "phone": "01911179297",
-      "email": "kaziagrovet@gmail.com",
-      "source": "Dhaka",
-      "status": "qualified",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO126163",
-      "value": 55929,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0039",
-      "name": "M/s Maisha Trading",
-      "phone": "01735384863",
-      "email": "",
-      "source": "Chattogram",
-      "status": "qualified",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO126162",
-      "value": 94980,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0040",
-      "name": "Sojol Jute Traders",
-      "phone": "01754616681",
-      "email": "",
-      "source": "Pabna",
-      "status": "qualified",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO126134",
-      "value": 1137500,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0041",
-      "name": "Sojol Jute Traders",
-      "phone": "01754616681",
-      "email": "",
-      "source": "Pabna",
-      "status": "qualified",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO126134",
-      "value": 1137500,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0042",
-      "name": "Provita Feed Ltd.",
-      "phone": "01713189140",
-      "email": "",
-      "source": "Chattogram",
-      "status": "lost",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO126109",
-      "value": 18795000,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0043",
-      "name": "MP AGRO",
-      "phone": "01918883809",
-      "email": "mpagro2711@gmail.com",
-      "source": "Pabna",
-      "status": "qualified",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO12698",
-      "value": 5400000,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0044",
-      "name": "MP AGRO",
-      "phone": "01918883809",
-      "email": "",
-      "source": "Pabna",
-      "status": "qualified",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO12698",
-      "value": 5400000,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0045",
-      "name": "Nobayon Traders Ltd. (FOC)",
-      "phone": "01704094705",
-      "email": "",
-      "source": "Dhaka",
-      "status": "qualified",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO1225639",
-      "value": 30,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0046",
-      "name": "Nobayon Traders Ltd. (FOC)",
-      "phone": "01704094705",
-      "email": "",
-      "source": "Dhaka",
-      "status": "qualified",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO1225640",
-      "value": 30,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0047",
-      "name": "Akij Agro Feed Ltd ( Unit 01)",
-      "phone": "01335144567",
-      "email": "",
-      "source": "Narayanganj",
-      "status": "lost",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO1225633",
-      "value": 210000000,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0048",
-      "name": "Akij Agro Feed Ltd ( Unit 02)",
-      "phone": "01335144567",
-      "email": "",
-      "source": "Mymensingh",
-      "status": "qualified",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO1225608",
-      "value": 1235250,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0049",
-      "name": "New Poultry Feed and Medicine",
-      "phone": "01713584078",
-      "email": "",
-      "source": "Gazipur",
-      "status": "lost",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO1225601",
-      "value": 61,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0050",
-      "name": "M/s T H Corporation",
-      "phone": "01717209510",
-      "email": "",
-      "source": "Joypurhat",
-      "status": "lost",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO1225581",
-      "value": 452003.616,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0051",
-      "name": "M/s T H Corporation",
-      "phone": "01717209510",
-      "email": "",
-      "source": "Joypurhat",
-      "status": "lost",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO1225581",
-      "value": 452003.616,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0052",
-      "name": "Benzmark Corporation",
-      "phone": "01712445114",
-      "email": "",
-      "source": "Dhaka",
-      "status": "lost",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO1225579",
-      "value": 899200.64,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0053",
-      "name": "Benzmark Corporation",
-      "phone": "01712445114",
-      "email": "",
-      "source": "Dhaka",
-      "status": "lost",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO1225580",
-      "value": 338998.824,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0054",
-      "name": "Nobayon Traders Ltd. (FOC)",
-      "phone": "01704094705",
-      "email": "",
-      "source": "Dhaka",
-      "status": "lost",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO1125549",
-      "value": 230,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0055",
-      "name": "Nobayon Traders Ltd. (FOC)",
-      "phone": "01704094705",
-      "email": "",
-      "source": "Dhaka",
-      "status": "qualified",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO1025495",
-      "value": 58,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0056",
-      "name": "Akij Agro Feed Ltd ( Unit 01)",
-      "phone": "01335144567",
-      "email": "",
-      "source": "Narayanganj",
-      "status": "lost",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO1025461",
-      "value": 10410000,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0057",
-      "name": "Akij Agro Feed Ltd ( Unit 01)",
-      "phone": "01335144567",
-      "email": "",
-      "source": "Narayanganj",
-      "status": "qualified",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO1025456",
-      "value": 136000000,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0058",
-      "name": "Akij Agro Feed Ltd ( Unit 01)",
-      "phone": "01335144567",
-      "email": "",
-      "source": "Narayanganj",
-      "status": "lost",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO1025445",
-      "value": 10800000,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0059",
-      "name": "Abir Agro Business",
-      "phone": "01719468597",
-      "email": "",
-      "source": "Dinajpur",
-      "status": "lost",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO1025422",
-      "value": 1130500,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0060",
-      "name": "Abir Agro Business",
-      "phone": "01719468597",
-      "email": "",
-      "source": "Dinajpur",
-      "status": "lost",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO1025406",
-      "value": 1050000,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0061",
-      "name": "Square Food & Beverage Ltd",
-      "phone": "01755668712",
-      "email": "",
-      "source": "Dhaka",
-      "status": "qualified",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO925227",
-      "value": 19259200,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0062",
-      "name": "Nobayon Traders Ltd. (FOC)",
-      "phone": "01704094705",
-      "email": "",
-      "source": "Dhaka",
-      "status": "qualified",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO825109",
-      "value": 250,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
-      "id": "L-0063",
-      "name": "M/S Faraj Traders",
-      "phone": "01722054130",
-      "email": "",
-      "source": "Sirajganj",
-      "status": "qualified",
-      "salesperson": "Trading Sales",
-      "supervisor": "Kazi Sibbir Ahammad (CBO)",
-      "notes": "Credit | SO82573",
-      "value": 7619994,
-      "created_at": "2026-08-12T03:14:55.273Z"
-    },
-    {
       "id": "LEAD-0001",
       "name": "Paragon Poultry Ltd.",
       "phone": "1713361932",
       "email": "shazzad@paragon.com.bd; tuhir@paragon.com.bd",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Mr. Moshiur Rahman (Managing Director) | Brand: Paragon Feed | Paragon House (10th Floor), 5 Mohakhali C/A, Dhaka-1212",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.105Z"
+      "created_at": "2026-08-15T13:35:56.105Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0002",
@@ -3374,10 +2556,11 @@
       "email": "mahabobur.rahman@abflbd.com; kayum@abflbd.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Md. Mahabobur Rahman Sarker (Chief Executive Officer) | Brand: Aftab Feed | Islam Chamber (13th Floor), 125/A Motijheel C/A, Dhaka-1000",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0003",
@@ -3386,10 +2569,11 @@
       "email": "nourish@gmail.com; rbabu@nourish-poultry.com; amin@nourish-poultry.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Mr. Shamsul Arefin Khaled (Director) | Brand: Nourish | Takia Center, House #39, Sonargaon Janapath, Uttara, Dhaka-1230",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0004",
@@ -3398,10 +2582,11 @@
       "email": "suchat@cpbangladesh.com; syed.jab@cpbangladesh.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Suchat Suntipada (President) | Brand: CP Feed | E-236, Ward-7, Chandra, Kaliakoir, Gazipur",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0005",
@@ -3410,10 +2595,11 @@
       "email": "nazrul.islam@acigodrej.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Mohammad Nazrul Islam (Associate Vice President) | Brand: ACI Feed | Kaderia Tower (7th & 9th Floor), Mohakhali C/A, Dhaka-1212",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0006",
@@ -3422,10 +2608,11 @@
       "email": "monsur69@gmail.com; aleya.commercial@gmail.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Khondaker Monsur Hossain (Managing Director) | Brand: Anchor & Aleya | Momotaz Plaza (3rd Floor), Uttara, Dhaka-1230",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0007",
@@ -3434,10 +2621,11 @@
       "email": "mahbubait2015@gmail.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Muhammad Abdul Majid (Managing Director) | Brand: AIT Feed | Afza Tower (3rd Floor), Monipuripara, Tejgaon, Dhaka-1215",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0008",
@@ -3446,10 +2634,11 @@
       "email": "makhatch.nayan@gmail.com; makhatch.nayan@yahoo.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Abdus Sobhan Bhuiyan (Managing Director) | Brand: Zadid Feed | VIP Tower (2nd Floor), Nayapaltan, Dhaka-1000",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0009",
@@ -3458,10 +2647,11 @@
       "email": "nhfmbd@newhope.cn; rajibh573@gmail.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Mr. He Quanshui (Chairman) | Brand: New Hope Feed | Bhangnahati, Sreepur, Gazipur",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0010",
@@ -3470,10 +2660,11 @@
       "email": "homayun.kabir@mgi.org; ibrahim.ufl@mgi.org",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Mohammad Homayun Kabir (General Manager (Operation)) | Brand: Fresh Feed | Fresh Villa, House #15, Road #34, Gulshan-1, Dhaka",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0011",
@@ -3482,10 +2673,11 @@
       "email": "mahbub19710@gmail.com; mahbub19710@live.com; bpffl@live.com; adil.cu12@gmail.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Md. Mahbubur Rahman (Managing Director) | Brand: Biswas Feed | House #36, Road #13, Sector #3, Uttara, Dhaka-1230",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0012",
@@ -3494,10 +2686,11 @@
       "email": "jav@jaysonbd.com; enam.mallik@jaysonbd.com; mdsalimullah@jaysonbd.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Enam Mallik (Managing Director) | Brand: Jaso Feed | 232-234, Tejgaon Industrial Area, Dhaka-1208",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0013",
@@ -3506,10 +2699,11 @@
       "email": "halim@citygroupbd.com; alavi.khan@citygroupbd.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Md. Hasan (Managing Director) | Brand: Teer Feed | City House, Gulshan-2, Dhaka",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0014",
@@ -3518,10 +2712,11 @@
       "email": "mars_feed@yahoo.com; shushama_feed@yahoo.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Mr. Sabir Hossain (Managing Director) | Brand: Mars Feed | Jiban Bima Bhaban, Dilkusha C/A, Dhaka-1000",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0015",
@@ -3530,10 +2725,11 @@
       "email": "homayun.kabir@mgi.org; ibrahim.ufl@mgi.org",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Mohammad Homayun Kabir (General Manager (Operation)) | Brand: Fresh Feed | Fresh Villa, House #15, Road #34, Gulshan-1, Dhaka",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0016",
@@ -3542,10 +2738,11 @@
       "email": "aafzal@krishibidgroup.com; mdaligb.ali@gmail.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Dr. Md. Ali Afzal (Managing Director) | Brand: Krishibid Feed | 801 Begum Rokeya Sarani, Mirpur, Dhaka-1216",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0017",
@@ -3554,10 +2751,11 @@
       "email": "spectrapropts@yahoo.com; ahsanuzzaman96@yahoo.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Md. Ahsanuzzaman (Director (Operation)) | Brand: Mega Feed | House #17, Road #106, Gulshan-2, Dhaka",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0018",
@@ -3566,10 +2764,11 @@
       "email": "primecarejs@gmail.com; ranaprimecare@gmail.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Md. Emdadul Haque (Managing Director) | Brand: Krishipannya Feed | Rayer Bazar, Dhaka",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0019",
@@ -3578,10 +2777,11 @@
       "email": "afl@amangroupbd.com; aziz08@amangroupbd.com; shofiqul@amangroupbd.co",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Md. Rafiqul Islam (Chairman) | Brand: Aman Feed | 2 Ishakha Avenue, Sector-6, Uttara, Dhaka-1230",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0020",
@@ -3590,10 +2790,11 @@
       "email": "mahbub19710@gmail.com; mahbub19710@live.com; toriqul09@gmail.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Md. Mahbubur Rahman (Managing Director) | Brand: Advanced Feed | House #12, Road #25, Sector #7, Uttara, Dhaka-1230",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0021",
@@ -3602,10 +2803,11 @@
       "email": "ansarali.ag@gmail.com; irahman.ag@gmail.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Md. Shahidul Ahsan (Chairman) | Brand: A-1 Feed | 76 Bir Uttam A.K. Khandakar Sarak, Mohakhali, Dhaka-1212",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0022",
@@ -3614,10 +2816,11 @@
       "email": "ppff.dhaka@gmail.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Md. Sadikul Islam (Managing Director) | Brand: Adarsha Feed | House #68, Road #20, Sector #11, Uttara, Dhaka-1230",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0023",
@@ -3626,10 +2829,11 @@
       "email": "krishna19720@gmail.com; rbal2013@yahoo.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Krisno Gopal Saha (Managing Director) | Brand: Cherish Feed | House-3, Road-35, Sector-07, Uttara, Dhaka-1230",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0024",
@@ -3638,10 +2842,11 @@
       "email": "mohd.khasru@gmail.com; smsfeeds@hotmail.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Mohammad Khasru (Director) | Brand: SMS Feed | House #8 (Flat #301), Road #1, Block #F, Banani, Dhaka-1213",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0025",
@@ -3650,10 +2855,11 @@
       "email": "gazipurfeedsltd@gmail.com; shahalam162@gmail.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Md. Kabir Hossain (Managing Director) | Brand: Gazipur Feed | Ambag, Konabari, Gazipur",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0026",
@@ -3662,10 +2868,11 @@
       "email": "aristocrat.commercial@gmail.com; hr.aristocrat@gmail.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Md. Atiquzzaman Khan (Managing Director) | Brand: Aristocrat Feed | House #58/A, Road #131, Gulshan-1, Dhaka-1212",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0027",
@@ -3674,10 +2881,11 @@
       "email": "bd.md.almamun@gmail.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Md. Al Mamun (Deputy General Manager) | Brand: Bangla Feed | House #08, Road #06, Block #C, Banani, Dhaka",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0028",
@@ -3686,10 +2894,11 @@
       "email": "rupshifishfeed@gmail.com; mnesaru@yahoo.com; rezaulkarimsrhom@yahoo.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Alhaj Md. Ramzan Hossain (Managing Director) | Brand: Rupshi Fish Feed | Eastern Arzoo Suite 16/1 (16th Floor), 197 Shaheed Syed Nazrul Islam Sarani, Bijoy Nagar, Dhaka-1000",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0029",
@@ -3698,10 +2907,11 @@
       "email": "sbgroup1980@gmail.com; newtex1234@gmail.com; sbgroupindustry2015@gmail.com; ahmedsagar16@gmail.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Khairul Basar Sagar (Director) | Brand: S.B Feed | House #626, Level-1, Road #19, Block #F, Bashundhara R/A, Dhaka",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0030",
@@ -3710,10 +2920,11 @@
       "email": "misham.agro@gmail.com; onefeed11@yahoo.com; monirmislam@gmail.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Md. Masum Miah (Managing Director) | Brand: One Feed | House #22, Level-03, Road #09, Sector #04, Uttara, Dhaka-1230",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0031",
@@ -3722,10 +2933,11 @@
       "email": "misham.agro@gmail.com; onefeed11@yahoo.com; monirmislam@gmail.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Md. Masum Miah (Managing Director) | Brand: One Feed | House #22, Level-03, Road #09, Sector #04, Uttara, Dhaka-1230",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0032",
@@ -3734,10 +2946,11 @@
       "email": "tail_ltd@yahoo.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Md. Shahjahan Ali (Managing Director) | Brand: Tamim Feed | Surjo Torun, House #28, Road #02, Block #C, Banasree, Rampura, Dhaka",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0033",
@@ -3746,10 +2959,11 @@
       "email": "nourish@gmail.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Nazmul Ahsan Khaled (Managing Director) | Brand: Nourish Feed | House #404, Road #27 (Old), Zenetic Plaza, Dhanmondi, Dhaka-1209",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0034",
@@ -3758,10 +2972,11 @@
       "email": "power7fl@yahoo.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Md. Mahbubur Rahman (Managing Director) | Brand: Power Feed | House #36, Road #13, Sector #03, Uttara, Dhaka-1230",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0035",
@@ -3770,10 +2985,11 @@
       "email": "nurunnabi.provita@yahoo.com; mahiuddin@provitagroupbd.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Md. Nurunnobi Bhuiyan (Chairman) | Brand: Provita Fish Feed | House #270, Road #3, DOHS Baridhara, Dhaka",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0036",
@@ -3782,10 +2998,11 @@
       "email": "nahar_agro@yahoo.com; naharpoultry@yahoo.com; rrtutul@yahoo.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Md. Rakibur Rahman (Managing Director) | Brand: Nahar Feed | Plot #02, Road #01, Paharika R/A, South Khulshi, Chattogram",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0037",
@@ -3794,10 +3011,11 @@
       "email": "info@paragongroup-bd.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Md. Moshiur Rahman (Managing Director) | Brand: Paragon Feed | Paragon House (10th Floor), 5 Mohakhali C/A, Dhaka-1212",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0038",
@@ -3806,10 +3024,11 @@
       "email": "info@paragongroup-bd.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Md. Moshiur Rahman (Managing Director) | Brand: Paragon Feed | Paragon House (10th Floor), 5 Mohakhali C/A, Dhaka-1212",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0039",
@@ -3818,10 +3037,11 @@
       "email": "info@paragongroup-bd.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Md. Moshiur Rahman (Managing Director) | Brand: Paragon Feed | Paragon House (10th Floor), 5 Mohakhali C/A, Dhaka-1212",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0040",
@@ -3830,10 +3050,11 @@
       "email": "info@paragongroup-bd.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Md. Moshiur Rahman (Managing Director) | Brand: Paragon Feed | Paragon House (10th Floor), 5 Mohakhali C/A, Dhaka-1212",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0041",
@@ -3842,10 +3063,11 @@
       "email": "sfhabib@gmail.com; haqueplanet@gmail.com; planet2010group@gmail.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Shah Fahad Habib (Director) | Brand: Planet Feed | Delta Dahlia (7th Floor), 36 Kemal Ataturk Avenue, Banani C/A, Dhaka-1213",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0042",
@@ -3854,10 +3076,11 @@
       "email": "psclbd@yahoo.com; anup.mn80@gmail.com; anup.mn.accessories@gmail.com; foyaju@gmail.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Anup Kumar Das (Managing Director) | Brand: Paradise Feed | Holding #162, Ward #03, Gazipur City, Gazipur",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0043",
@@ -3866,10 +3089,11 @@
       "email": "shahjahan@eongroup.net.bd",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Momin Ud Dowlah (Managing Director) | Brand: Euro Feed | 304, Tejgaon Industrial Area, Dhaka-1208",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0044",
@@ -3878,10 +3102,11 @@
       "email": "shahjahan@eongroup.net.bd",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Momin Ud Dowlah (Managing Director) | Brand: Fortune Feed | 304, Tejgaon Industrial Area, Dhaka-1208",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0045",
@@ -3890,10 +3115,11 @@
       "email": "kamruzzaman_nasir@yahoo.com; uttpalknb@gmail.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Kamruzzaman (Managing Director) | Brand: KNB Feed | Bottoil, BSCIC, Kushtia",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0046",
@@ -3902,10 +3128,11 @@
       "email": "info_tfl@dhakagroup.com; sajal@dhakagroup.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Md. Abul Kalam Azad (Managing Director) | Brand: DG Feed | Rupayan Taj (3rd Floor), Nayapaltan, Dhaka-1000",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0047",
@@ -3914,10 +3141,11 @@
       "email": "victorfeeds@gmail.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Md. Ruhul Amin (Managing Director) | Brand: Victor Feed | House #532/4, Flat-C, Lane #11, DOHS Baridhara, Dhaka",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0048",
@@ -3926,10 +3154,11 @@
       "email": "nourish@gmail.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Nazmul Ahsan Khaled (Managing Director) | Brand: Nourish Feed | House #404, Road #27 (Old), Zenetic Plaza, Dhanmondi, Dhaka-1209",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0049",
@@ -3938,10 +3167,11 @@
       "email": "kabir@rootgroupbd.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Md. Haider Jahan (Chairman) | Brand: Premier Feed | House #428, Road #30, New DOHS, Mohakhali, Dhaka",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0050",
@@ -3950,10 +3180,11 @@
       "email": "pcf.feed@gmail.com; pcf.procurement@gmail.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Md. Shariful Islam (Managing Director) | Brand: PCF Feed | PCF House (1st Floor), 10 Clay Road, Khulna-9100",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0051",
@@ -3962,10 +3193,11 @@
       "email": "unionfeeds@gmail.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Md. Muslam Uddin (Chairman) | Brand: Union Feed | 209/1, Hatimara, Kashimpur, Gazipur",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0052",
@@ -3974,10 +3206,11 @@
       "email": "premierfeed18@gmail.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Md. Zillur Rahman (Managing Director) | Brand: Premier Feed | Dopdopia, Nalchiti, Jhalakathi",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0053",
@@ -3986,10 +3219,11 @@
       "email": "info@masterfeedagrotec.com; mfalheadoffice@gmail.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Md. Kabir Hossain (Managing Director) | Brand: Master Feed | Novel House, 137 (8th Floor), Shantinagar, Dhaka-1217",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0054",
@@ -3998,10 +3232,11 @@
       "email": "remico.agro@yahoo.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Md. Haider Ali Sarker (Managing Director) | Brand: My Feed | Jamadarpukur, Garidoh Road, Shajahanpur, Bogura",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0055",
@@ -4010,10 +3245,11 @@
       "email": "wayagro@waygroupbd.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Ismail Raihan (Chairman) | Brand: Sujala Feeds | 849/3, Shewrapara, Level-6, Mirpur, Dhaka-1216",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0056",
@@ -4022,10 +3258,11 @@
       "email": "igcbd.info@gmail.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Md. Nurul Islam Khan (Managing Director) | Brand: A Plus Feed | The Emporium (8th Floor), BTI Building, Shamoli, Dhaka",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0057",
@@ -4034,10 +3271,11 @@
       "email": "enamhatcheryandfeedsltd@gmail.com; arshad_roopai@yahoo.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Md. Anamul Haque Mollah (Managing Director) | Brand: Enam Feed | House #33, Road #03, Sector #09, Uttara, Dhaka-1230",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0058",
@@ -4046,10 +3284,11 @@
       "email": "ctgfishproduct@yahoo.com; mahbubul.sm@pushtirajbd.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Md. Mosharaf Hossain (Managing Director) | Brand: Pushthiraj Feed | Ishaque Tower (Level-4), Kuril, Bhatara, Dhaka-1229",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0059",
@@ -4058,10 +3297,11 @@
       "email": "islamagrovet@gmail.com; sharifulsna@gmail.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Md. Jahirul Islam (Managing Director) | Brand: Modina Feed | House #15, Road #04, Sector #04, Uttara, Dhaka",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0060",
@@ -4070,10 +3310,11 @@
       "email": "apfeed@gmail.com; Abdullah.agro@yahoo.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Masudul Hasan (Proprietor) | Brand: AP Feed | House #08, Road #10, Sector #07, Uttara, Dhaka",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0061",
@@ -4082,10 +3323,11 @@
       "email": "bfml.info@gmail.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Sk. Hemayet Uddin (Managing Director) | Brand: Titas & Sium Feeds | Attraki, Fakirhat, Bagerhat",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0062",
@@ -4094,10 +3336,11 @@
       "email": "report.pphl@gmail.com; feedmill.ppfl@gmail.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Mahabubur Rahaman (Proprietor) | Brand: Peoples Feed | 3 Tajuddin Road, Magbazar, Dhaka",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0063",
@@ -4106,10 +3349,11 @@
       "email": "krishna19720@gmail.com; rbal2013@yahoo.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Krisno Gopal Saha (Managing Director) | Brand: Elegant Feed | House-29 (5th & 6th Floor), Road-02, Sector-07, Uttara, Dhaka-1230",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0064",
@@ -4118,10 +3362,11 @@
       "email": "doctorfeedsltd@gmail.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "S.M. Bayezed Hossain (Managing Director) | Brand: Doctor Feed | Flat #7C, 32/3, Nigar Plaza, Road #02, Sector #03, Uttara, Dhaka-1230",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0065",
@@ -4130,10 +3375,11 @@
       "email": "jamunafeeds@gmail.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Kazi Mostafizur Rahman (Managing Director) | Brand: Jamuna Feed | Paddabila, Bashundia, Jessore",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0066",
@@ -4142,10 +3388,11 @@
       "email": "nahar_agro@yahoo.com; naharpoultry@yahoo.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Md. Rakibur Rahman (Managing Director) | Brand: Nahar Agro Feed | Plot #02, Road #01, Paharika R/A, South Khulshi, Chattogram",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0067",
@@ -4154,10 +3401,11 @@
       "email": "nahar_agro@yahoo.com; naharpoultry@yahoo.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Md. Rakibur Rahman (Managing Director) | Brand: Nahar Agro Feed | Plot #02, Road #01, Paharika R/A, South Khulshi, Chattogram",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0068",
@@ -4166,10 +3414,11 @@
       "email": "kudyogltd@gmail.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Engr. Md. Kalam Hossain (Managing Director) | Brand: Happy Fish | Navana Yusuf Infinity, Level-10, 16 Mohakhali C/A, Dhaka",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0069",
@@ -4178,10 +3427,11 @@
       "email": "kazal@divinetextile.com; mithu@divinetextile.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Md. Hasanuzzaman (Managing Director) | Brand: Divine Feed | House #348, Road #26, New DOHS, Mohakhali, Dhaka-1206",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0070",
@@ -4190,10 +3440,11 @@
       "email": "mahbub19710@gmail.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Md. Mahbubur Rahman (Managing Director) | Brand: Classic Feed | House #24, Road #13, Sector #03, Uttara, Dhaka-1230",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0071",
@@ -4202,10 +3453,11 @@
       "email": "info@nabilgroupbd.com; mirror.rajib@yahoo.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Md. Aminul Islam (Managing Director) | Brand: Nabil Feed | Nabil House, Plot #09, Road #17, Block #D, Banani, Dhaka",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0072",
@@ -4214,10 +3466,11 @@
       "email": "rahmannafiur@newhope.cn",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "He Quanshui (Chairman) | Brand: Phenix Feed | Narhatta, Kahaloo, Bogura",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0073",
@@ -4226,10 +3479,11 @@
       "email": "info@rkfeedltd.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Md. Rahan Uddin (Managing Director) | Brand: RK Feed | House #07, Road #2/C, Block #J, Baridhara, Dhaka-1212",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0074",
@@ -4238,10 +3492,11 @@
       "email": "mamatin@amangroupbd.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Saika Tabassum (Managing Director) | Brand: Alma Feed | House #01, Road #16, Sector #06, Uttara, Dhaka-1230",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0075",
@@ -4250,10 +3505,11 @@
       "email": "sun3@haid.com.cn; alauddin@haid.com.cn",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Mr. Long Jianmin (Managing Director) | Brand: Haid Feed | Bahatir, Kashil, Basail, Tangail",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0076",
@@ -4262,10 +3518,11 @@
       "email": "md@prangroup.com; scm311@prangroup.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Md. Eleash Mridha (Chairman) | Brand: Alo Feed | GA-105/1, Middle Badda, Dhaka-1212",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0077",
@@ -4274,10 +3531,11 @@
       "email": "ratim.2004@gmail.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Shamim Miah (Managing Director) | Brand: N.R Feed | 52/A, D.B Road, Shehora, Mymensingh",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0078",
@@ -4286,10 +3544,11 @@
       "email": "chowdhuryfoodandfeed@gmail.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Sudhir Chowdhury (Managing Director) | Brand: Chowdhury Feed | 46 Satmosjid Road, Rupayan Z.R. Plaza, Dhanmondi, Dhaka-1209",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     },
     {
       "id": "LEAD-0079",
@@ -4298,10 +3557,11 @@
       "email": "iqbalagrofarm0181@gmail.com",
       "source": "Feed Industry Prospect",
       "status": "new",
-      "salesperson": "",
+      "salesperson": "Trading Sales",
       "notes": "Md. Iqbal Hossain (Proprietor) | Brand: Iqbal Feed | House #01, Road #20/A, Sector #03, Uttara, Dhaka-1230",
       "value": 0,
-      "created_at": "2026-08-15T13:35:56.106Z"
+      "created_at": "2026-08-15T13:35:56.106Z",
+      "supervisor": "Kazi Sibbir Ahammad (CBO)"
     }
   ],
   "opportunities": [
