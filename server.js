@@ -72,6 +72,8 @@ async function getSalesPerformance() {
     const csv = await fetchGoogleSheet();
     const rows = parseCSV(csv);
     const salesmen = {};
+    const yearsSet = new Set();
+    const monthsSet = new Set();
     for (let i = 1; i < rows.length; i++) {
       const r = rows[i];
       if (!r || r.length < 23) continue;
@@ -81,21 +83,28 @@ async function getSalesPerformance() {
       const rawSalesman = r[21] || '';
       const district = r[22] || '';
       const qty = parseFloat(r[8]) || 0;
+      const month = r[13] || 'Unknown';
+      const year = r[14] || 'Unknown';
       let name = rawSalesman.replace(/^\d+\s*/, '').trim();
       if (!name) continue;
-      if (!salesmen[name]) salesmen[name] = { name, count: 0, salesValue: 0, costValue: 0, profit: 0, qty: 0, districts: new Set() };
-      salesmen[name].count++;
-      salesmen[name].salesValue += salesValue;
-      salesmen[name].costValue += costValue;
-      salesmen[name].profit += profit;
-      salesmen[name].qty += qty;
-      if (district) salesmen[name].districts.add(district);
+      if (month !== 'Unknown') monthsSet.add(month);
+      if (year !== 'Unknown') yearsSet.add(year);
+      const key = name + '|' + year + '|' + month;
+      if (!salesmen[key]) salesmen[key] = { name, year, month, count: 0, salesValue: 0, costValue: 0, profit: 0, qty: 0, districts: new Set() };
+      salesmen[key].count++;
+      salesmen[key].salesValue += salesValue;
+      salesmen[key].costValue += costValue;
+      salesmen[key].profit += profit;
+      salesmen[key].qty += qty;
+      if (district) salesmen[key].districts.add(district);
     }
-    const result = Object.values(salesmen)
+    const periods = Object.values(salesmen)
       .sort((a, b) => b.salesValue - a.salesValue)
       .map(s => ({
         name: s.name,
         designation: SALESMAN_DESIGNATIONS[s.name] || 'Sales Officer',
+        year: s.year,
+        month: s.month,
         orders: s.count,
         qty: s.qty,
         salesValue: s.salesValue,
@@ -103,12 +112,17 @@ async function getSalesPerformance() {
         profit: s.profit,
         districts: [...s.districts]
       }));
+    const result = {
+      periods: periods,
+      years: [...yearsSet].sort().reverse(),
+      months: ['January','February','March','April','May','June','July','August','September','October','November','December']
+    };
     salesCache = result;
     salesCacheTime = Date.now();
     return result;
   } catch (e) {
     console.log('Google Sheets fetch failed:', e.message);
-    return salesCache || [];
+    return salesCache || { periods: [], years: [], months: [] };
   }
 }
 
@@ -430,15 +444,13 @@ async function computeDashboardData() {
   var salesPerf = await getSalesPerformance();
   var designationOrder = { 'Chief Business Officer': 1, 'Senior Manager': 2, 'Deputy Manager': 3, 'Assistant Manager': 4, 'Senior Officer': 5, 'Sales Officer': 6 };
 
-  var spPerformance = salesPerf.map(function (s) {
-    var pct = null;
-    var ai = '';
-    if (s.profit >= 0) ai = 'Profitable: +' + (s.profit / 10000000).toFixed(2) + ' Cr';
-    else ai = 'Loss: ' + (s.profit / 10000000).toFixed(2) + ' Cr';
+  var spPerformance = (salesPerf.periods || []).map(function (s) {
     return {
       name: s.name,
       username: s.name,
       role: s.designation,
+      year: s.year,
+      month: s.month,
       territory: s.districts ? s.districts[0] : 'Nobayon Traders Ltd.',
       customers: s.orders,
       visits: Math.round(s.qty * 100) / 100,
@@ -446,12 +458,15 @@ async function computeDashboardData() {
       achievedSales: s.salesValue,
       profit: s.profit,
       costValue: s.costValue,
-      pct: pct,
-      aiSuggestion: ai
+      pct: null,
+      aiSuggestion: (s.profit >= 0 ? 'Profit: +' : 'Loss: ') + (s.profit / 10000000).toFixed(2) + ' Cr'
     };
   }).sort(function (a, b) {
     return (designationOrder[a.role] || 99) - (designationOrder[b.role] || 99);
   });
+
+  var availableYears = salesPerf.years || [];
+  var availableMonths = salesPerf.months || [];
 
   if (spPerformance.length === 0) {
     var ntlTeam = [
@@ -461,7 +476,7 @@ async function computeDashboardData() {
       { name: 'Md Shoib Reza Rajib', role: 'Assistant Manager', territory: 'Operations' }
     ];
     spPerformance = ntlTeam.map(function (sp) {
-      return { name: sp.name, username: sp.name, role: sp.role, territory: sp.territory, customers: 0, visits: 0, targetSales: 0, achievedSales: 0, pct: null, aiSuggestion: 'No data' };
+      return { name: sp.name, username: sp.name, role: sp.role, territory: sp.territory, year: '', month: '', customers: 0, visits: 0, targetSales: 0, achievedSales: 0, profit: 0, pct: null, aiSuggestion: 'No data' };
     });
   }
 
@@ -486,6 +501,8 @@ async function computeDashboardData() {
       totalVisits: visits.length
     },
     spPerformance: spPerformance,
+    availableYears: availableYears,
+    availableMonths: availableMonths,
     financial: financial || null,
     buInfo: { code: 'NTL', id: 211, name: 'Nobayon Traders Ltd.', group: 'Trading', subGroup: 'Non Food', taxRate: 25 }
   };

@@ -140,7 +140,50 @@ async function renderDashboard() {
   var sp = data.spPerformance;
   var fin = data.financial;
   var bu = data.buInfo;
-  var h = '<div class="kpi-grid">';
+  var years = data.availableYears || [];
+  var months = data.availableMonths || [];
+
+  if (_spYear === undefined) _spYear = 'All';
+  if (_spMonth === undefined) _spMonth = 'All';
+
+  var h = '';
+
+  // Filter dropdowns
+  h += '<div class="table-section" style="padding:12px 16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap"><strong style="color:var(--gray-700)">Filter:</strong>';
+  h += '<select id="sp-year" onchange="_spYear=this.value;renderDashboard()" class="form-group" style="padding:8px;border:1px solid var(--gray-300);border-radius:6px">';
+  h += '<option value="All"' + (_spYear === 'All' ? ' selected' : '') + '>All Years</option>';
+  years.forEach(function(y){ h += '<option value="'+y+'"' + (_spYear === y ? ' selected' : '') + '>'+y+'</option>'; });
+  h += '</select>';
+  h += '<select id="sp-month" onchange="_spMonth=this.value;renderDashboard()" style="padding:8px;border:1px solid var(--gray-300);border-radius:6px">';
+  h += '<option value="All"' + (_spMonth === 'All' ? ' selected' : '') + '>All Months</option>';
+  months.forEach(function(m){ h += '<option value="'+m+'"' + (_spMonth === m ? ' selected' : '') + '>'+m+'</option>'; });
+  h += '</select>';
+  h += '</div>';
+
+  // Filter SP data by year/month
+  var filtered = sp.filter(function(s){
+    var yearOk = _spYear === 'All' || s.year === _spYear;
+    var monthOk = _spMonth === 'All' || s.month === _spMonth;
+    return yearOk && monthOk;
+  });
+
+  // Aggregate by salesman (in case multiple periods match)
+  var agg = {};
+  filtered.forEach(function(s){
+    if (!agg[s.name]) agg[s.name] = { name: s.name, role: s.role, orders: 0, qty: 0, sales: 0, profit: 0 };
+    agg[s.name].orders += s.customers;
+    agg[s.name].qty += s.visits;
+    agg[s.name].sales += s.achievedSales;
+    agg[s.name].profit += (s.profit || 0);
+  });
+  var spAgg = Object.values(agg);
+  var totalSalesVal = spAgg.reduce(function(s,x){return s+x.sales;},0);
+  var totalProfit = spAgg.reduce(function(s,x){return s+x.profit;},0);
+  var totalOrders = spAgg.reduce(function(s,x){return s+x.orders;},0);
+  var totalQty = spAgg.reduce(function(s,x){return s+x.qty;},0);
+
+  // KPI cards (CRM)
+  h += '<div class="kpi-grid">';
   var cards = [
     { l:"Total Customers", v:kpi.totalCustomers, s:kpi.newThisMonth+" new", n:"customers", cl:"navy" },
     { l:"Open Leads", v:kpi.openLeads, s:"Active leads", n:"leads", cl:"cyan" },
@@ -154,13 +197,23 @@ async function renderDashboard() {
   cards.forEach(function(ca){ h += '<div class="stat-card '+ca.cl+'" onclick="navigate(\''+ca.n+'\')"><div class="stat-label">'+ca.l+'</div><div class="stat-value">'+ca.v+'</div><div class="stat-sub">'+ca.s+'</div></div>'; });
   h += '</div>';
 
+  // Filtered Sales Performance summary cards
+  h += '<div style="margin-bottom:12px"><h3 style="color:var(--gray-700)">Sales Performance ('+_spYear+(_spMonth!=='All' ? ' - '+_spMonth : '')+')</h3></div>';
+  h += '<div class="kpi-grid">';
+  [{ l:"Sales Value", v:(totalSalesVal/10000000).toFixed(2)+" Cr", s:totalOrders+" orders", cl:"navy" },
+   { l:"Profit", v:(totalProfit/10000000).toFixed(2)+" Cr", s:totalProfit>=0?"Net Profit":"Net Loss", cl:totalProfit>=0?"green":"red" },
+   { l:"Quantity", v:Math.round(totalQty).toLocaleString()+" Ton", s:"Total volume", cl:"cyan" },
+   { l:"Salespersons", v:spAgg.length, s:"Active", cl:"amber" }
+  ].forEach(function(ca){ h += '<div class="stat-card '+ca.cl+'"><div class="stat-label">'+ca.l+'</div><div class="stat-value">'+ca.v+'</div><div class="stat-sub">'+ca.s+'</div></div>'; });
+  h += '</div>';
+
   if (fin) {
     var rev = Math.abs(fin.totalRevenue)||0;
     var gp = rev - fin.cogs;
     var totalOpex = fin.opex + fin.financialExp + fin.tax;
     h += '<div style="margin-bottom:12px"><h3 style="color:var(--gray-700)">Nobayon Traders Ltd. (BU 211) - Financial Overview</h3></div>';
     h += '<div class="kpi-grid">';
-[{ l:"Revenue", v:(rev/10000000).toFixed(2)+" Cr", s:fin.totalTx+" tx", n:"financials", cl:"navy" },
+    [{ l:"Revenue", v:(rev/10000000).toFixed(2)+" Cr", s:fin.totalTx+" tx", n:"financials", cl:"navy" },
      { l:"COGS", v:(fin.cogs/10000000).toFixed(2)+" Cr", s:"Cost of goods", n:"financials", cl:"red" },
      { l:"Gross Profit", v:(gp/10000000).toFixed(2)+" Cr", s:((gp/rev)*100).toFixed(1)+"% margin", n:"financials", cl:"green" },
      { l:"OpEx", v:(totalOpex/10000000).toFixed(2)+" Cr", s:"OpEx+Finance+Tax", n:"financials", cl:"amber" },
@@ -172,13 +225,17 @@ async function renderDashboard() {
     h += '</div>';
   }
 
+  // SP Performance table (filtered)
   h += '<div class="table-section"><div class="table-section-header"><h3>Salesperson Performance</h3><span style="font-size:12px;color:var(--gray-400)">Google Sheets Live Data</span></div>';
   h += '<div style="overflow-x:auto"><table><thead><tr><th>Name</th><th>Designation</th><th>Orders</th><th>Qty (Ton)</th><th>Sales (Cr)</th><th>Profit (Cr)</th><th>Status</th></tr></thead><tbody>';
-  sp.forEach(function(s){
-    var profitCls = (s.profit !== undefined && s.profit < 0) ? 'var(--red)' : 'var(--green)';
-    var profitVal = s.profit !== undefined ? (s.profit/10000000).toFixed(2)+' Cr' : '-';
-    var badge = s.profit !== undefined ? (s.profit < 0 ? '<span class="badge badge-red">Loss</span>' : '<span class="badge badge-green">Profit</span>') : '<span class="badge badge-gray">N/A</span>';
-    h += '<tr><td><strong>'+s.name+'</strong></td><td><span class="badge badge-blue">'+s.role+'</span></td><td>'+s.customers+'</td><td>'+s.visits+'</td><td>'+(s.achievedSales/10000000).toFixed(2)+' Cr</td><td style="color:'+profitCls+';font-weight:600">'+profitVal+'</td><td>'+badge+'</td></tr>';
+  if (spAgg.length === 0) {
+    h += '<tr><td colspan="7" style="text-align:center;color:var(--gray-400)">No data for selected period</td></tr>';
+  }
+  spAgg.forEach(function(s){
+    var profitCls = (s.profit < 0) ? 'var(--red)' : 'var(--green)';
+    var profitVal = (s.profit/10000000).toFixed(2)+' Cr';
+    var badge = s.profit < 0 ? '<span class="badge badge-red">Loss</span>' : '<span class="badge badge-green">Profit</span>';
+    h += '<tr><td><strong>'+s.name+'</strong></td><td><span class="badge badge-blue">'+s.role+'</span></td><td>'+s.orders+'</td><td>'+Math.round(s.qty)+'</td><td>'+(s.sales/10000000).toFixed(2)+' Cr</td><td style="color:'+profitCls+';font-weight:600">'+profitVal+'</td><td>'+badge+'</td></tr>';
   });
   h += '</tbody></table></div></div>';
   c.innerHTML = h;
@@ -186,6 +243,8 @@ async function renderDashboard() {
 
 // ==================== VISITS (3 Sections) ====================
 var _visitsTab = 'sales';
+var _spYear = 'All';
+var _spMonth = 'All';
 async function renderVisits(){
   var c=document.getElementById("content-area");
   var hb=document.getElementById("header-action-btn");
