@@ -34,7 +34,7 @@ async function logout() { try { await apiPost("/api/logout"); } catch(e) {} stat
 async function restoreSession() { var t = sessionStorage.getItem("ntl_token"); if (!t) return false; state.token = t; try { var d = await apiGet("/api/session"); state.user = d.user; return true; } catch(e) { sessionStorage.clear(); state.token = null; return false; } }
 
 // Navigation
-function navigate(tab, replace) { if (!state.user) return; var a = ROLE_HIERARCHY[state.user.role] || []; if (!a.includes(tab)) return; if (!replace) state.navHistory.push(state.currentTab); state.currentTab = tab; renderPage(); }
+function navigate(tab, replace) { if (!state.user) return; var a = ROLE_HIERARCHY[state.user.role] || []; if (!a.includes(tab)) return; if (!replace) state.navHistory.push(state.currentTab); state.currentTab = tab; _page = 0; renderPage(); }
 function goBack() { if (state.navHistory.length === 0) return; state.currentTab = state.navHistory.pop(); renderPage(); }
 function renderPage() { document.getElementById("back-btn").classList.toggle("visible", state.navHistory.length > 0); document.getElementById("header-action-btn").style.display = "none";   var r = { dashboard: renderDashboard, customers: function(){renderEntityView("customers","Customers")}, leads: function(){renderEntityView("leads","Leads")}, opportunities: function(){renderEntityView("opportunities","Opportunities")}, orders: function(){renderEntityView("orders","Orders")}, complaints: function(){renderEntityView("complaints","Complaints")}, visits: renderVisits, team: renderTeam, reports: renderReports, accounts: renderAccounts, financials: renderFinancials }; var l = { dashboard: "Dashboard - NTL CRM", customers: "Customers", leads: "Leads", opportunities: "Opportunities", orders: "Orders", complaints: "Complaints", visits: "Visits", team: "Team Management", reports: "Reports", accounts: "User Accounts", financials: "Financial Analytics" }; document.getElementById("page-title").textContent = l[state.currentTab] || state.currentTab; updateSidebar(); if (r[state.currentTab]) r[state.currentTab](); }
 function updateSidebar() { var n = document.getElementById("sidebar-nav"); var a = ROLE_HIERARCHY[state.user.role] || []; var h = ""; Object.values(NAV_GROUPS).forEach(function(g){ var v = g.items.filter(function(i){return a.includes(i.id)}); if (v.length === 0) return; h += '<div class="nav-section"><div class="nav-section-title">'+g.title+'</div>'; v.forEach(function(i){ h += '<div class="nav-item'+(state.currentTab===i.id?" active":"")+'" onclick="navigate(\''+i.id+'\')"><span class="nav-icon">'+NAV_ICONS[i.id]+'</span> '+i.label+'</div>'; }); h += '</div>'; }); n.innerHTML = h; }
@@ -106,15 +106,19 @@ async function renderEntityView(ent, title) {
   else if (ent === "complaints") { try { var cp = await apiGet("/api/complaints/dwh"); if (cp && cp.length > 0) state.complaints = cp; else { await reloadEntity(ent); } } catch(e) { await reloadEntity(ent); } }
   else if (!state[ent] || state[ent].length === 0) { try { await reloadEntity(ent); } catch(e) {} }
   var data = state[ent] || [];
+  var pageSize = 15;
+  var totalPages = Math.max(1, Math.ceil(data.length / pageSize));
+  if (_page === undefined || _page >= totalPages) _page = 0;
+  var pageData = data.slice(_page * pageSize, (_page + 1) * pageSize);
   var h = '<div class="table-section"><div class="table-section-header"><h3>'+title+' ('+data.length+')</h3><div class="toolbar"><input type="text" class="search-box" placeholder="Search..." oninput="filterTable(\''+ent+'-table\',this.value)"><button class="btn btn-primary btn-sm" onclick="showEntityForm(\''+ent+'\',null)">+ Add</button></div></div>';
   if (data.length === 0) {
     h += '<div class="empty-state"><div class="empty-icon">&#128203;</div><h4>No records found</h4><p>Click + Add to create the first one.</p></div>';
   } else {
     h += '<div style="overflow-x:auto"><table id="'+ent+'-table"><thead><tr>';
-    var cols = ent === "customers" ? ["name","phone","email","address","salesperson","status","source"] : ent === "orders" ? ["customer","salesperson","product","quantity","unit_price","total","status","order_date","delivery_date"] : Object.keys(data[0]).filter(function(k){ return k !== "created_at" && k !== "updated_at"; });
+    var cols = ent === "customers" ? ["name","phone","email","address","salesperson","status","source"] : ent === "orders" ? ["customer","salesperson","product","quantity","unit_price","total","status","order_date","delivery_date"] : ent === "leads" ? ["name","phone","email","status","salesperson","supervisor"] : Object.keys(data[0]).filter(function(k){ return k !== "created_at" && k !== "updated_at"; });
     cols.forEach(function(k){ h += '<th>'+k.replace(/_/g," ").replace(/\b\w/g,function(l){return l.toUpperCase()})+'</th>'; });
     h += '<th style="width:80px">Actions</th></tr></thead><tbody>';
-    data.forEach(function(d){
+    pageData.forEach(function(d){
       h += '<tr class="clickable" onclick="showEntityForm(\''+ent+'\','+JSON.stringify(d).replace(/"/g,"&quot;")+')">';
       cols.forEach(function(k){
         var v = d[k] || "";
@@ -126,6 +130,14 @@ async function renderEntityView(ent, title) {
       h += '<td><button class="btn btn-outline btn-sm" onclick="event.stopPropagation();showEntityForm(\''+ent+'\','+JSON.stringify(d).replace(/"/g,"&quot;")+')">Edit</button></td></tr>';
     });
     h += '</tbody></table></div>';
+    // Pagination
+    if (totalPages > 1) {
+      h += '<div style="display:flex;justify-content:center;align-items:center;gap:8px;padding:12px;border-top:1px solid var(--gray-200)">';
+      h += '<button class="btn btn-outline btn-sm" ' + (_page === 0 ? 'disabled' : '') + ' onclick="_page='+(_page-1)+';renderPage();">Prev</button>';
+      h += '<span style="font-size:13px;color:var(--gray-600)">Page '+(_page+1)+' of '+totalPages+'</span>';
+      h += '<button class="btn btn-outline btn-sm" ' + (_page >= totalPages-1 ? 'disabled' : '') + ' onclick="_page='+(_page+1)+';renderPage();">Next</button>';
+      h += '</div>';
+    }
   }
   h += '</div>'; c.innerHTML = h;
 }
@@ -245,6 +257,7 @@ async function renderDashboard() {
 var _visitsTab = 'sales';
 var _spYear = 'All';
 var _spMonth = 'All';
+var _page = 0;
 async function renderVisits(){
   var c=document.getElementById("content-area");
   var hb=document.getElementById("header-action-btn");
