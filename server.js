@@ -9,11 +9,14 @@ try { sql = require('mssql'); } catch (e) { console.log('mssql not available:', 
 
 // Google Sheets sales data URL
 const GSHEETS_URL = 'https://docs.google.com/spreadsheets/d/1k3YNf8tCu3DyFpBZOFWjvByEpFYQVkf5/export?format=csv';
+const LEADS_SHEET_URL = 'https://docs.google.com/spreadsheets/d/1i9SSECOfGMwAYe9dOEndLZK3P-p2XjBb0iNdD7OaJX4/export?format=csv';
 let salesCache = null;
 let salesCacheTime = 0;
 const SALES_CACHE_MS = 10 * 60 * 1000;
 let soSalesmanMap = null;
 let soSalesmanMapTime = 0;
+let prospectLeadsCache = null;
+let prospectLeadsCacheTime = 0;
 
 function parseCSV(text) {
   const rows = [];
@@ -36,9 +39,13 @@ function parseCSV(text) {
 }
 
 function fetchGoogleSheet() {
+  return fetchGoogleSheetWithUrl(GSHEETS_URL);
+}
+
+function fetchGoogleSheetWithUrl(url) {
   return new Promise((resolve, reject) => {
-    const request = (url, redirects) => {
-      https.get(url, (res) => {
+    const request = (u, redirects) => {
+      https.get(u, (res) => {
         if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location && redirects < 5) {
           request(res.headers.location, redirects + 1);
           return;
@@ -49,7 +56,7 @@ function fetchGoogleSheet() {
         res.on('error', reject);
       }).on('error', reject);
     };
-    request(GSHEETS_URL, 0);
+    request(url, 0);
   });
 }
 
@@ -65,6 +72,68 @@ const SALESMAN_DESIGNATIONS = {
   'MD Eynul Hoque': 'Deputy Manager',
   'Yeasin Ali Ridoy': 'Senior Officer'
 };
+
+function normalizeName(name) {
+  return (name || '').toLowerCase()
+    .replace(/\([^)]*\)/g, '')
+    .replace(/ltd\.?/g, 'limited')
+    .replace(/pvt\.?/g, 'private')
+    .replace(/pte\.?/g, '')
+    .replace(/co\.?/g, 'company')
+    .replace(/&/g, 'and')
+    .replace(/[^a-z0-9]/g, '')
+    .trim();
+}
+
+async function fetchProspectLeads() {
+  if (prospectLeadsCache && (Date.now() - prospectLeadsCacheTime) < SALES_CACHE_MS) return prospectLeadsCache;
+  try {
+    const csv = await fetchGoogleSheetWithUrl(LEADS_SHEET_URL);
+    const rows = parseCSV(csv);
+    const existingCustomers = readJSON('customers');
+    const existingNorm = new Set();
+    existingCustomers.forEach(c => {
+      existingNorm.add(normalizeName(c.name));
+      existingNorm.add(normalizeName(c.name).replace('limited', '').replace('private', ''));
+    });
+
+    const newLeads = [];
+    for (let i = 1; i < rows.length; i++) {
+      const r = rows[i];
+      if (!r || !r[1]) continue;
+      const company = r[1].trim();
+      const norm = normalizeName(company);
+      const simple = norm.replace('limited', '').replace('private', '');
+      let isExisting = false;
+      if (existingNorm.has(norm) || existingNorm.has(simple)) {
+        isExisting = true;
+      } else {
+        for (const ex of existingNorm) {
+          if (ex.length > 3 && (norm.includes(ex) || ex.includes(norm))) { isExisting = true; break; }
+        }
+      }
+      if (!isExisting) {
+        newLeads.push({
+          id: 'PROSPECT-' + String(i).padStart(4, '0'),
+          name: company,
+          phone: r[5] || '',
+          email: r[6] || '',
+          source: 'Feed Industry Prospect',
+          status: 'new',
+          salesperson: '',
+          notes: (r[3] || '') + (r[4] ? ' (' + r[4] + ')' : '') + ' | Brand: ' + (r[2] || '') + ' | ' + (r[7] || ''),
+          value: 0
+        });
+      }
+    }
+    prospectLeadsCache = newLeads;
+    prospectLeadsCacheTime = Date.now();
+    return newLeads;
+  } catch (e) {
+    console.log('Leads sheet fetch failed:', e.message);
+    return prospectLeadsCache || [];
+  }
+}
 
 async function getSalesPerformance() {
   if (salesCache && (Date.now() - salesCacheTime) < SALES_CACHE_MS) return salesCache;
@@ -566,6 +635,14 @@ if (sql) {
           value: r.value || 0
         };
       });
+      // Merge prospect leads from Google Sheets (skip existing customers)
+      try {
+        var prospects = await fetchProspectLeads();
+        var existingLeadNames = new Set(mapped.map(function(l){ return l.name.toLowerCase(); }));
+        prospects.forEach(function(p){
+          if (!existingLeadNames.has(p.name.toLowerCase())) mapped.push(p);
+        });
+      } catch (e) {}
       res.json(mapped);
     } catch (e) { res.status(500).json({ error: e.message }); }
   });
